@@ -1,0 +1,22 @@
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.item{
+    margin-bottom: 10px;
+}
+
+.select_role{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 15%;
+    margin-left: 15%;
+}
+
+.role{
+    padding-left: 20px;
+    padding-right: 20px;
+}
