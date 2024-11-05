@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2024 at 09:37 PM
+-- Generation Time: Nov 05, 2024 at 10:30 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,18 @@ SET time_zone = "+00:00";
 --
 -- Database: `hr_database`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `access`
+--
+
+CREATE TABLE `access` (
+  `hr_Ssn` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -85,6 +97,17 @@ CREATE TABLE `employs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `has`
+--
+
+CREATE TABLE `has` (
+  `E_Ssn` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `hr`
 --
 
@@ -96,9 +119,28 @@ CREATE TABLE `hr` (
   `phone_no` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `access`
+--
+ALTER TABLE `access`
+  ADD PRIMARY KEY (`hr_Ssn`,`username`),
+  ADD KEY `username` (`username`),
+  ADD KEY `password` (`password`);
 
 --
 -- Indexes for table `accountant`
@@ -132,14 +174,36 @@ ALTER TABLE `employs`
   ADD KEY `E_Ssn` (`E_Ssn`);
 
 --
+-- Indexes for table `has`
+--
+ALTER TABLE `has`
+  ADD PRIMARY KEY (`E_Ssn`,`username`),
+  ADD KEY `username` (`username`);
+
+--
 -- Indexes for table `hr`
 --
 ALTER TABLE `hr`
   ADD PRIMARY KEY (`hr_Ssn`);
 
 --
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`username`),
+  ADD UNIQUE KEY `unique_password` (`password`);
+
+--
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `access`
+--
+ALTER TABLE `access`
+  ADD CONSTRAINT `access_ibfk_1` FOREIGN KEY (`hr_Ssn`) REFERENCES `hr` (`hr_Ssn`),
+  ADD CONSTRAINT `access_ibfk_2` FOREIGN KEY (`username`) REFERENCES `login` (`username`),
+  ADD CONSTRAINT `access_ibfk_3` FOREIGN KEY (`password`) REFERENCES `login` (`password`);
 
 --
 -- Constraints for table `accountant`
@@ -159,6 +223,13 @@ ALTER TABLE `associate`
 ALTER TABLE `employs`
   ADD CONSTRAINT `employs_ibfk_1` FOREIGN KEY (`C_name`) REFERENCES `company` (`Name`),
   ADD CONSTRAINT `employs_ibfk_2` FOREIGN KEY (`E_Ssn`) REFERENCES `employee` (`E_Ssn`);
+
+--
+-- Constraints for table `has`
+--
+ALTER TABLE `has`
+  ADD CONSTRAINT `has_ibfk_1` FOREIGN KEY (`E_Ssn`) REFERENCES `employee` (`E_Ssn`),
+  ADD CONSTRAINT `has_ibfk_2` FOREIGN KEY (`username`) REFERENCES `login` (`username`);
 
 --
 -- Constraints for table `hr`
