@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2024 at 10:30 PM
+-- Generation Time: Nov 07, 2024 at 09:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -97,6 +97,17 @@ CREATE TABLE `employs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `gets`
+--
+
+CREATE TABLE `gets` (
+  `E_Ssn` int(11) NOT NULL,
+  `pay_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `has`
 --
 
@@ -128,6 +139,45 @@ CREATE TABLE `hr` (
 CREATE TABLE `login` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `manages`
+--
+
+CREATE TABLE `manages` (
+  `E_Ssn` int(11) NOT NULL,
+  `pay_id` int(11) NOT NULL,
+  `det_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pay`
+--
+
+CREATE TABLE `pay` (
+  `id` int(11) NOT NULL,
+  `acc_num` int(11) DEFAULT NULL,
+  `rout_num` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pay_details`
+--
+
+CREATE TABLE `pay_details` (
+  `det_id` int(11) NOT NULL,
+  `pay_id` int(11) NOT NULL,
+  `salary` float DEFAULT NULL,
+  `bonus` float DEFAULT NULL,
+  `benefits` float DEFAULT NULL,
+  `tax_rate` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -174,6 +224,13 @@ ALTER TABLE `employs`
   ADD KEY `E_Ssn` (`E_Ssn`);
 
 --
+-- Indexes for table `gets`
+--
+ALTER TABLE `gets`
+  ADD PRIMARY KEY (`E_Ssn`,`pay_id`),
+  ADD KEY `pay_id` (`pay_id`);
+
+--
 -- Indexes for table `has`
 --
 ALTER TABLE `has`
@@ -192,6 +249,27 @@ ALTER TABLE `hr`
 ALTER TABLE `login`
   ADD PRIMARY KEY (`username`),
   ADD UNIQUE KEY `unique_password` (`password`);
+
+--
+-- Indexes for table `manages`
+--
+ALTER TABLE `manages`
+  ADD PRIMARY KEY (`E_Ssn`,`pay_id`,`det_id`),
+  ADD KEY `pay_id` (`pay_id`),
+  ADD KEY `det_id` (`det_id`);
+
+--
+-- Indexes for table `pay`
+--
+ALTER TABLE `pay`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pay_details`
+--
+ALTER TABLE `pay_details`
+  ADD PRIMARY KEY (`det_id`,`pay_id`),
+  ADD KEY `pay_id` (`pay_id`);
 
 --
 -- Constraints for dumped tables
@@ -225,6 +303,13 @@ ALTER TABLE `employs`
   ADD CONSTRAINT `employs_ibfk_2` FOREIGN KEY (`E_Ssn`) REFERENCES `employee` (`E_Ssn`);
 
 --
+-- Constraints for table `gets`
+--
+ALTER TABLE `gets`
+  ADD CONSTRAINT `gets_ibfk_1` FOREIGN KEY (`E_Ssn`) REFERENCES `employee` (`E_Ssn`),
+  ADD CONSTRAINT `gets_ibfk_2` FOREIGN KEY (`pay_id`) REFERENCES `pay` (`id`);
+
+--
 -- Constraints for table `has`
 --
 ALTER TABLE `has`
@@ -236,6 +321,20 @@ ALTER TABLE `has`
 --
 ALTER TABLE `hr`
   ADD CONSTRAINT `hr_ibfk_1` FOREIGN KEY (`hr_Ssn`) REFERENCES `employee` (`E_Ssn`);
+
+--
+-- Constraints for table `manages`
+--
+ALTER TABLE `manages`
+  ADD CONSTRAINT `manages_ibfk_1` FOREIGN KEY (`E_Ssn`) REFERENCES `accountant` (`acc_Ssn`),
+  ADD CONSTRAINT `manages_ibfk_2` FOREIGN KEY (`pay_id`) REFERENCES `pay` (`id`),
+  ADD CONSTRAINT `manages_ibfk_3` FOREIGN KEY (`det_id`) REFERENCES `pay_details` (`det_id`);
+
+--
+-- Constraints for table `pay_details`
+--
+ALTER TABLE `pay_details`
+  ADD CONSTRAINT `pay_details_ibfk_1` FOREIGN KEY (`pay_id`) REFERENCES `pay` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
