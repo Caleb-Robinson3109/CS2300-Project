@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     //do sql quary to see if the username and password are in the db
     $sql_username = "SELECT username FROM LOGIN WHERE username = '$username'";
-    $sql_password = "SELECT username FROM LOGIN WHERE username = '$username'";
+    $sql_password = "SELECT password FROM LOGIN WHERE username = '$username'";
     $result_username = $conn->query($sql_username);
     $result_password = $conn->query($sql_password);
 
