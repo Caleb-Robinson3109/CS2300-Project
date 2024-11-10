@@ -1,41 +1,36 @@
 <?php
 session_start();
 
-$servername = "localhost";
-$username = "root";
-$password = "password";
-
+$db_servername = "localhost";
+$db_username = "root";
+$db_password = "password";
+$db_name = "hr_database";
 //creates the connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($db_servername, $db_username, $db_password, $db_name);
 
-//checks connection
-if(!$conn){
-    die("Connection failed: " . mysqli_connect_error());
+// Check if the connection was successful
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
-?>
 
-<!DOCTYPE html>
-<html>
-<head lang = "en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Wage Wizards</title>
-</head>
-<body>
-    <h1 class="center">Automatic Salary by Wage Wizards</h1>
-    <form class="center" action="/home.html" method="POST">
-        <label for="login" class="item">Company Name Login Portal</label>
-        <div>
-            <label for="username">Username: </label>
-            <input type="text" id="username" name="username" required class="item">
-        </div>
-        <div>
-            <label for="password">Password: </label>
-            <input type="text" id="password" name="password" required class="item">
-        </div>
-        <button type="submit" class="item">Login</button>
-    </form>
-</body>
-</html> 
+//gets the password and username from login.html
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    //gets data
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    //do sql quary to see if the username and password are in the db
+    $sql_username = "SELECT username FROM LOGIN WHERE username = '$username'";
+    $sql_password = "SELECT username FROM LOGIN WHERE username = '$username'";
+    $result_username = $conn->query($sql_username);
+    $result_password = $conn->query($sql_password);
+
+    //there is username and passwrod combo in the db
+    if($result_password->num_rows > 0 && $result_username->num_rows > 0){
+        //do stuff
+    }
+}
+
+
+
+
