@@ -2,7 +2,7 @@
 session_start();
 $db_servername = "localhost";
 $db_username = "root";
-$db_password = "password";
+$db_password = "";
 $db_name = "hr_database";
 //creates the connection
 $conn = new mysqli($db_servername, $db_username, $db_password, $db_name);
@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $company_name = $_POST['company_name'];
 
-    $sql = "SELECT Name FROM company WHERE username = '$company_name'";
+    $sql = "SELECT Name FROM company WHERE Name = '$company_name'";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
