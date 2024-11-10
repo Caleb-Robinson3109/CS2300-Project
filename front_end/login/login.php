@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = "password";
+
+//creates the connection
+$conn = new mysqli($servername, $username, $password);
+
+//checks connection
+if(!$conn){
+    die("Connection failed: " . mysqli_connect_error());
+}
+echo "Connected successfully";
+?>
+
 <!DOCTYPE html>
 <html>
 <head lang = "en">
