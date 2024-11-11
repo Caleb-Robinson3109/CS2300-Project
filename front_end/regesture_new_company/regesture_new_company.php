@@ -1,50 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head lang = "en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Wage Wizards</title>
-</head>
-<body>
-    <h1 class="center">Automatic Salaray by Wage Wizards</h1>
-    <form class="center" action="/home.html" method="POST">
-        <label for="c_info" class="item">Company Information</label>
-        <div class>
-            <label for="c_name">Company Name: </label>
-            <input type="text" id="c_name" name="c_name" required class="item">
-        </div>
-        <div>
-            <label for="c_name">Company Address: </label>
-            <input type="text" id="c_adress" name="c_adress" required class="item">
-        </div>
+<?php
+session_start();
 
-        <p class="item"></p>
-        <p class="item"></p>
-        <p class="item"></p>
+$db_servername = "localhost";
+$db_username = "root";
+$db_password = "";
+$db_name = "hr_database";
 
-        <label for="hr_info" class="item">Human Reasources Admin Information</label>
-        <div>
-            <label for="hr_fname">First Name: </label>
-            <input type="text" id="c_name" name="c_name" required class="item">
-        </div>
-        <div>
-            <label for="c_name">Last Name: </label>
-            <input type="text" id="c_name" name="c_name" required class="item">
-        </div>
-        <div>
-            <label for="c_name">SSN: </label>
-            <input type="text" id="c_name" name="c_name" required class="item">
-        </div>
-        <div>
-            <label for="c_name">Username: </label>
-            <input type="text" id="c_name" name="c_name" required class="item">
-        </div>
-        <div>
-            <label for="c_name">Password: </label>
-            <input type="text" id="c_name" name="c_name" required class="item">
-        </div>
-        <button type="submit" class="item">Regesture</button>
-    </form>
-</body>
-</html> 
+//connect to db
+$conn = new mysqli($db_servername, $db_username, $db_password, $db_name);
+
+//check connection
+if($conn->connect_error)
+{
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $company_name = $_POST['c_name'];
+    $company_address = $_POST['c_address'];
+    $admin_fname = $_POST['hr_fname'];
+    $admin_lname = $_POST['hr_lname'];
+    $admin_ssn = $_POST['hr_ssn'];
+    $admin_username = $_POST['hr_username'];
+    $admin_password = $_POST['hr_password'];
+
+    //add the company and the hr to the database
+    $conn->query("INSERT INTO company VALUES '$company_name', '$company_address'");
+    $conn->query("INSERT INTO employee VALUES '$admin_ssn', 'hr'");
+    $conn->query("INSERT INTO employs VALUES '$company_name', '$admin_ssn'");
+    $conn->query("INSERT INTO hr VALUES '$admin_ssn', NULL '$admin_fname', '$admin_lname', NULL");
+    $conn->query("INSERT INTO login VALUES '$admin_username', '$admin_password'");
+    conn->query("INSERT INTO has VALUES '$admin_ssn', '$admin_username'");
+
+    //goes back to the enter company page (index.html)
+    header("Location: ../index.html");
+    exit();
+}
+
+$conn->close();
