@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $conn->query("INSERT INTO employs VALUES '$company_name', '$admin_ssn'");
     $conn->query("INSERT INTO hr VALUES '$admin_ssn', NULL '$admin_fname', '$admin_lname', NULL");
     $conn->query("INSERT INTO login VALUES '$admin_username', '$admin_password'");
-    conn->query("INSERT INTO has VALUES '$admin_ssn', '$admin_username'");
+    $conn->query("INSERT INTO has VALUES '$admin_ssn', '$admin_username'");
 
     //goes back to the enter company page (index.html)
     header("Location: ../index.html");
