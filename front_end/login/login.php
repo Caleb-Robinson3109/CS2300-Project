@@ -25,11 +25,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     //there is username and passwrod combo in the db
     if($result->num_rows > 0){
-        $row = $result->fetch_assoc()
-        if($row[1] == $password)
+        $row = $result->fetch_assoc();
+        if($row['password'] == $password)
         {
             $_SESSION['username'] = $username;
-            $_SESSION['password'] = $password;
             header("Location: ../select_role/select_role.html");
             exit();
         }
