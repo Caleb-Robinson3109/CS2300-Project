@@ -20,17 +20,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $password = $_POST['password'];
 
     //do sql quary to see if the username and password are in the db
-    $sql_username = "SELECT username FROM LOGIN WHERE username = '$username'";
-    $sql_password = "SELECT password FROM LOGIN WHERE username = '$username'";
-    $result_username = $conn->query($sql_username);
-    $result_password = $conn->query($sql_password);
+    $sql = "SELECT login.username, login.password FROM login JOIN has ON login.username = has.username JOIN employes ON has.E_Ssn = employs.E_Ssn WHERE login.username = '$username' AND employs.C_name = '$_SESSION['company_name']'";
+    $result = $conn->query($sql);
 
     //there is username and passwrod combo in the db
-    if($result_password->num_rows > 0 && $result_username->num_rows > 0){
-        //do stuff
+    if($result->num_rows > 0){
+        $row = $result->fetch_assoc()
+        if($row[1] == $password)
+        {
+            $_SESSION['username'] = $username;
+            $_SESSION['password'] = $password;
+            header("Location: ../select_role/select_role.html");
+            exit();
+        }
+        else{
+            echo "<script type='text/javascript'>
+                alert('Username and password not found.');
+                window.history.back();
+              </script>";
+              exit();
+        }
+    }
+    else{
+        echo "<script type='text/javascript'>
+                alert('Username and password not found.');
+                window.history.back();
+              </script>";
+              exit();
     }
 }
 
-
-
-
+// Close the database connection
+$conn->close();

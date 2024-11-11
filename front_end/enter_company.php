@@ -21,6 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if($result->num_rows > 0){
         //redirct to login.html
+        $_SESSION['company_name'] = $company_name;
         header("Location: /login/login.html");
         exit();
     }
