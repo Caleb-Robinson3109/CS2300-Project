@@ -3,7 +3,7 @@ session_start();
 
 $db_servername = "localhost";
 $db_username = "root";
-$db_password = "password";
+$db_password = "";
 $db_name = "hr_database";
 //creates the connection
 $conn = new mysqli($db_servername, $db_username, $db_password, $db_name);
