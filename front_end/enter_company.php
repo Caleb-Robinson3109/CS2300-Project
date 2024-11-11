@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $company_name = $_POST['company_name'];
-
+    
     $sql = "SELECT Name FROM company WHERE Name = '$company_name'";
     $result = $conn->query($sql);
 

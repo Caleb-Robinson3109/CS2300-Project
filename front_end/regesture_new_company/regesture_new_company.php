@@ -21,20 +21,68 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $admin_fname = $_POST['hr_fname'];
     $admin_lname = $_POST['hr_lname'];
     $admin_ssn = $_POST['hr_ssn'];
+    $admin_email = $_POST['hr_email'];
+    $admin_phone = $_POST['hr_phone'];
     $admin_username = $_POST['hr_username'];
     $admin_password = $_POST['hr_password'];
 
     //add the company and the hr to the database
-    $conn->query("INSERT INTO company VALUES '$company_name', '$company_address'");
-    $conn->query("INSERT INTO employee VALUES '$admin_ssn', 'hr'");
-    $conn->query("INSERT INTO employs VALUES '$company_name', '$admin_ssn'");
-    $conn->query("INSERT INTO hr VALUES '$admin_ssn', NULL '$admin_fname', '$admin_lname', NULL");
-    $conn->query("INSERT INTO login VALUES '$admin_username', '$admin_password'");
-    $conn->query("INSERT INTO has VALUES '$admin_ssn', '$admin_username'");
+    $company_q = ("INSERT INTO company (Name, Address) VALUES ('$company_name', '$company_address')");
+    $employee_q = ("INSERT INTO employee (E_Ssn, role) VALUES ('$admin_ssn', 'hr')");
+    $employs_q = ("INSERT INTO employs (c_name, E_Ssn) VALUES ('$company_name', '$admin_ssn')");
+    $hr_q = "INSERT INTO hr (hr_Ssn, email, F_name, L_name, phone_no) VALUES ('$admin_ssn', '$admin_email', '$admin_fname', '$admin_lname', '$admin_phone')";
+    $login_q = ("INSERT INTO login (username, password) VALUES ('$admin_username', '$admin_password')");
+    $has_q = ("INSERT INTO has (E_Ssn, username) VALUES ('$admin_ssn', '$admin_username')");
 
-    //goes back to the enter company page (index.html)
-    header("Location: ../index.html");
-    exit();
+    if (mysqli_query($conn, $company_q) === false) {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Check company information";
+    } 
+    elseif (mysqli_query($conn, $employee_q) === false) {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Check company information";
+        //deletes previous entries
+        mysqli_query($conn, "DELETE FROM company WHERE Name = '$company_name'");
+    } 
+    elseif (mysqli_query($conn, $employs_q) === false) {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Check company information";
+        //deletes previous entries
+        mysqli_query($conn, "DELETE FROM employee WHERE E_Ssn = '$admin_ssn'");
+        mysqli_query($conn, "DELETE FROM company WHERE Name = '$company_name'");
+    } 
+    elseif (mysqli_query($conn, $hr_q) === false) {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Check company information";
+        //deletes previous entries
+        mysqli_query($conn, "DELETE FROM employs WHERE C_name = '$company_name' AND E_Ssn = '$admin_ssn'");
+        mysqli_query($conn, "DELETE FROM employee WHERE E_Ssn = '$admin_ssn'");
+        mysqli_query($conn, "DELETE FROM company WHERE Name = '$company_name'");
+    } 
+    elseif (mysqli_query($conn, $login_q) === false) {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Check company information";
+        //deletes previous entries
+        mysqli_query($conn, "DELETE FROM hr WHERE hr_Ssn = '$admin_ssn'");
+        mysqli_query($conn, "DELETE FROM employs WHERE C_name = '$company_name' AND E_Ssn = '$admin_ssn'");
+        mysqli_query($conn, "DELETE FROM employee WHERE E_Ssn = '$admin_ssn'");
+        mysqli_query($conn, "DELETE FROM company WHERE Name = '$company_name'");
+    }
+    elseif (mysqli_query($conn, $has_q) === false) {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Check company information";
+        //deletes previous entries
+        mysqli_query($conn, "DELETE FROM login WHERE username = '$admin_username'");
+        mysqli_query($conn, "DELETE FROM hr WHERE hr_Ssn = '$admin_ssn'");
+        mysqli_query($conn, "DELETE FROM employs WHERE C_name = '$company_name' AND E_Ssn = '$admin_ssn'");
+        mysqli_query($conn, "DELETE FROM employee WHERE E_Ssn = '$admin_ssn'");
+        mysqli_query($conn, "DELETE FROM company WHERE Name = '$company_name'");
+    }  
+    else{
+        //goes back to the enter company page (index.html)
+        header("Location: ../index.html");
+        exit();
+    }
 }
 
 $conn->close();
