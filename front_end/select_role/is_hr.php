@@ -20,14 +20,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $sql = "SELECT * FROM hr WHERE hr_Ssn = '".$_SESSION['ssn']."'";
     $result = $conn->query($sql);
 
-    if($result->num_row > 0)
+    if($result->num_rows > 0)
     {
         header("Location: ../hr_home/hr_home.html");
         exit();
     }
     else{
         echo "<script type='text/javascript'>
-                alert('You do not have hr accuss');
+                alert('You do not have hr role.');
                 window.history.back();
               </script>";
               exit();
