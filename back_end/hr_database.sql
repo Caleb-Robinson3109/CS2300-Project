@@ -335,6 +335,66 @@ ALTER TABLE `manages`
 --
 ALTER TABLE `pay_details`
   ADD CONSTRAINT `pay_details_ibfk_1` FOREIGN KEY (`pay_id`) REFERENCES `pay` (`id`);
+
+-- Inserting some sample data for all the tables. 
+
+  -- Step 1: Insert data into `employee` table
+INSERT INTO `employee` (`E_Ssn`, `role`) VALUES
+(123456789, 'associate'),
+(987654321, 'hr'),
+(555555555, 'accountant');
+
+-- Step 2: Insert data into `hr` table
+INSERT INTO `hr` (`hr_Ssn`, `email`, `F_name`, `L_name`, `phone_no`) VALUES
+(987654321, 'asmith_hr@example.com', 'Alice', 'Smith', '555-5678');
+
+-- Step 3: Insert data into `accountant` table
+INSERT INTO `accountant` (`acc_Ssn`, `email`, `F_name`, `L_name`, `phone_no`) VALUES
+(555555555, 'mjohnson_acc@example.com', 'Mark', 'Johnson', '555-8765');
+
+-- Step 4: Insert data into `associate` table
+INSERT INTO `associate` (`acc_Ssn`, `email`, `F_name`, `L_name`, `phone_no`) VALUES
+(123456789, 'jdoe@example.com', 'John', 'Doe', '555-1234');
+
+-- Step 5: Insert data into `login` table
+INSERT INTO `login` (`username`, `password`) VALUES
+('jdoe', 'password123'),
+('asmith', 'securePass!23'),
+('mjohnson', 'P@ssw0rd');
+
+-- Step 6: Insert data into `access` table
+INSERT INTO `access` (`hr_Ssn`, `username`, `password`) VALUES
+(987654321, 'asmith', 'securePass!23');
+
+-- Step 7: Insert data into `company` table
+INSERT INTO `company` (`Name`, `Address`) VALUES
+('Tech Solutions', '123 Tech Street'),
+('Innovate Inc.', '456 Innovation Way'),
+('Global Corp', '789 Global Blvd');
+
+-- Step 8: Insert data into `employs` table
+INSERT INTO `employs` (`C_name`, `E_Ssn`) VALUES
+('Tech Solutions', 123456789),
+('Innovate Inc.', 987654321),
+('Global Corp', 555555555);
+
+-- Step 9: Insert data into `pay` table
+INSERT INTO `pay` (`id`, `acc_num`, `rout_num`) VALUES
+(1, 123456, 654321),
+(2, 123457, 654322),
+(3, 123458, 654323);
+
+-- Step 10: Insert data into `gets` table
+INSERT INTO `gets` (`E_Ssn`, `pay_id`) VALUES
+(123456789, 1),
+(987654321, 2),
+(555555555, 3);
+
+-- Step 11: Insert data into `has` table
+INSERT INTO `has` (`E_Ssn`, `username`) VALUES
+(123456789, 'jdoe'),
+(987654321, 'asmith'),
+(555555555, 'mjohnson');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
