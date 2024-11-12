@@ -7,12 +7,19 @@
     <title>Wage Wizards</title>
 </head>
 <body>
-    <h1 class="center">Automatic Salaray by Wage Wizards</h1>
-    <p>Company Name</p>
-    <p>company Address</p>
-    <p>First Name Last Name</p>
-    <p>user information</p>
-    <p>Expected Salary</p>
-    <p>$(salary + bonus + benifits) * (100 - tax rate)</p>
+    <form action="../enter_new_employee/enter_new_employee.html">
+        <input type="submit" value="Enter New Employee">
+    </form>
+    <form action="edit employee">
+        <input type="submit" value="Edit Employee Information">
+        <label for="e_ssn">Employee ID To Edit</label>
+        <input type="text" id="e_ssn" name="e_ssn" value="">
+    </form>
+    <form action="../lookup_id/lookup_id.php">
+        <input type="submit" value="Look Up Employee IDs">
+    </form>
+    <form action="../select_role/select_role.html">
+        <input type="submit" value="Back To Role Select">
+    </form>
 </body>
 </html> 
