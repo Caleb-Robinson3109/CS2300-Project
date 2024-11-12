@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html>
-<head lang = "en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
     <link rel="stylesheet" href="login.css">
-    <title>Wage Wizards</title>
 </head>
 <body>
-    <h1>Automatic Salary by Wage Wizards</h1>
-    <form action="login.php" method="POST">
-        <label for="login">Company Name Login Portal</label>
-        <div>
-            <label for="username">Username: </label>
-            <input type="text" id="username" name="username" required>
+    <div class="login-container">
+        <div class="role-button">
+            <button><i class="icon-star"></i> Role</button>
         </div>
-        <div>
-            <label for="password">Password: </label>
-            <input type="text" id="password" name="password" required>
+        <div class="login-box">
+          <form action="login.php" method="POST">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Sign In</button>
+            </form>
+            <a href="#">Forgot password?</a>
         </div>
-        <button type="submit">Login</button>
-    </form>
+    </div>
 </body>
-</html> 
+</html>
