@@ -17,16 +17,17 @@ if($conn->connect_error)
 
 //checks to make sure the user is an hr
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $sql = "SELECT * FROM hr WHERE hr_Ssn = ''";
+    $sql = "SELECT * FROM hr WHERE hr_Ssn = '".$_SESSION['ssn']."'";
     $result = $conn->query($sql);
 
     if($result->num_row > 0)
     {
-
+        header("Location: ../hr_home/hr_home.html");
+        exit();
     }
     else{
         echo "<script type='text/javascript'>
-                alert('YO);
+                alert('You do not have hr accuss');
                 window.history.back();
               </script>";
               exit();
