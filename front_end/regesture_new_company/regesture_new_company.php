@@ -33,30 +33,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $hr_q = "INSERT INTO hr (hr_Ssn, email, F_name, L_name, phone_no) VALUES ('$admin_ssn', '$admin_email', '$admin_fname', '$admin_lname', '$admin_phone')";
     $login_q = "INSERT INTO login (username, password) VALUES ('$admin_username', '$admin_password')";
     $has_q = "INSERT INTO has (E_Ssn, username) VALUES ('$admin_ssn', '$admin_username')";
+    $access_q = "INSERT INTO access (hr_Ssn, username, password) VALUES ('$admin_ssn', '$admin_username', '$admin_password')";
 
     if (mysqli_query($conn, $company_q) === false) {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $company_q . "<br>" . mysqli_error($conn);
     } 
     elseif (mysqli_query($conn, $employee_q) === false) {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $employee_q . "<br>" . mysqli_error($conn);
         //deletes previous entries
         mysqli_query($conn, "DELETE FROM company WHERE Name = '$company_name'");
     } 
     elseif (mysqli_query($conn, $employs_q) === false) {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $employs_q . "<br>" . mysqli_error($conn);
         //deletes previous entries
         mysqli_query($conn, "DELETE FROM employee WHERE E_Ssn = '$admin_ssn'");
         mysqli_query($conn, "DELETE FROM company WHERE Name = '$company_name'");
     } 
     elseif (mysqli_query($conn, $hr_q) === false) {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $hr_q . "<br>" . mysqli_error($conn);
         //deletes previous entries
         mysqli_query($conn, "DELETE FROM employs WHERE C_name = '$company_name' AND E_Ssn = '$admin_ssn'");
         mysqli_query($conn, "DELETE FROM employee WHERE E_Ssn = '$admin_ssn'");
         mysqli_query($conn, "DELETE FROM company WHERE Name = '$company_name'");
     } 
     elseif (mysqli_query($conn, $login_q) === false) {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $login_q . "<br>" . mysqli_error($conn);
         //deletes previous entries
         mysqli_query($conn, "DELETE FROM hr WHERE hr_Ssn = '$admin_ssn'");
         mysqli_query($conn, "DELETE FROM employs WHERE C_name = '$company_name' AND E_Ssn = '$admin_ssn'");
@@ -64,14 +65,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         mysqli_query($conn, "DELETE FROM company WHERE Name = '$company_name'");
     }
     elseif (mysqli_query($conn, $has_q) === false) {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $has_q . "<br>" . mysqli_error($conn);
         //deletes previous entries
         mysqli_query($conn, "DELETE FROM login WHERE username = '$admin_username'");
         mysqli_query($conn, "DELETE FROM hr WHERE hr_Ssn = '$admin_ssn'");
         mysqli_query($conn, "DELETE FROM employs WHERE C_name = '$company_name' AND E_Ssn = '$admin_ssn'");
         mysqli_query($conn, "DELETE FROM employee WHERE E_Ssn = '$admin_ssn'");
         mysqli_query($conn, "DELETE FROM company WHERE Name = '$company_name'");
-    }  
+    }
+    elseif(mysqli_query($conn, $access_q) === false){
+        echo "Error: " . $access_q . "<br>" . mysqli_error($conn);
+        //deletes previous entries
+        mysqli_query($conn, "DELETE FROM has WHERE E_Ssn = '$admin_ssn'");
+        mysqli_query($conn, "DELETE FROM login WHERE username = '$admin_username'");
+        mysqli_query($conn, "DELETE FROM hr WHERE hr_Ssn = '$admin_ssn'");
+        mysqli_query($conn, "DELETE FROM employs WHERE C_name = '$company_name' AND E_Ssn = '$admin_ssn'");
+        mysqli_query($conn, "DELETE FROM employee WHERE E_Ssn = '$admin_ssn'");
+        mysqli_query($conn, "DELETE FROM company WHERE Name = '$company_name'");
+    } 
     else{
         //goes back to the enter company page (index.html)
         header("Location: ../index.html");
