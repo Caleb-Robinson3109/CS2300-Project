@@ -27,33 +27,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $admin_password = $_POST['hr_password'];
 
     //add the company and the hr to the database
-    $company_q = ("INSERT INTO company (Name, Address) VALUES ('$company_name', '$company_address')");
-    $employee_q = ("INSERT INTO employee (E_Ssn, role) VALUES ('$admin_ssn', 'hr')");
-    $employs_q = ("INSERT INTO employs (c_name, E_Ssn) VALUES ('$company_name', '$admin_ssn')");
+    $company_q = "INSERT INTO company (Name, Address) VALUES ('$company_name', '$company_address')";
+    $employee_q = "INSERT INTO employee (E_Ssn, role) VALUES ('$admin_ssn', 'hr')";
+    $employs_q = "INSERT INTO employs (c_name, E_Ssn) VALUES ('$company_name', '$admin_ssn')";
     $hr_q = "INSERT INTO hr (hr_Ssn, email, F_name, L_name, phone_no) VALUES ('$admin_ssn', '$admin_email', '$admin_fname', '$admin_lname', '$admin_phone')";
-    $login_q = ("INSERT INTO login (username, password) VALUES ('$admin_username', '$admin_password')");
-    $has_q = ("INSERT INTO has (E_Ssn, username) VALUES ('$admin_ssn', '$admin_username')");
+    $login_q = "INSERT INTO login (username, password) VALUES ('$admin_username', '$admin_password')";
+    $has_q = "INSERT INTO has (E_Ssn, username) VALUES ('$admin_ssn', '$admin_username')";
 
     if (mysqli_query($conn, $company_q) === false) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        echo "Check company information";
     } 
     elseif (mysqli_query($conn, $employee_q) === false) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        echo "Check company information";
         //deletes previous entries
         mysqli_query($conn, "DELETE FROM company WHERE Name = '$company_name'");
     } 
     elseif (mysqli_query($conn, $employs_q) === false) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        echo "Check company information";
         //deletes previous entries
         mysqli_query($conn, "DELETE FROM employee WHERE E_Ssn = '$admin_ssn'");
         mysqli_query($conn, "DELETE FROM company WHERE Name = '$company_name'");
     } 
     elseif (mysqli_query($conn, $hr_q) === false) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        echo "Check company information";
         //deletes previous entries
         mysqli_query($conn, "DELETE FROM employs WHERE C_name = '$company_name' AND E_Ssn = '$admin_ssn'");
         mysqli_query($conn, "DELETE FROM employee WHERE E_Ssn = '$admin_ssn'");
@@ -61,7 +57,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } 
     elseif (mysqli_query($conn, $login_q) === false) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        echo "Check company information";
         //deletes previous entries
         mysqli_query($conn, "DELETE FROM hr WHERE hr_Ssn = '$admin_ssn'");
         mysqli_query($conn, "DELETE FROM employs WHERE C_name = '$company_name' AND E_Ssn = '$admin_ssn'");
@@ -70,7 +65,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     elseif (mysqli_query($conn, $has_q) === false) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        echo "Check company information";
         //deletes previous entries
         mysqli_query($conn, "DELETE FROM login WHERE username = '$admin_username'");
         mysqli_query($conn, "DELETE FROM hr WHERE hr_Ssn = '$admin_ssn'");
