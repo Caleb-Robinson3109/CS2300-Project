@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     JOIN has ON hr.hr_Ssn = has.E_Ssn
     JOIN login ON has.username = login.username
     WHERE hr.hr_Ssn = '$lookup_ssn'
-    /*UNION
+    UNION
     SELECT accountant.acc_Ssn AS ssn, 'hr' AS role, accountant.F_name AS fname, accountant.L_name AS lname, accountant.email AS email, accountant.phone_no AS phone, login.username AS username, login.password AS password
     FROM accountant
     JOIN has ON accountant.acc_Ssn = has.E_Ssn
@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     FROM associate
     JOIN has ON associate.acc_Ssn = has.E_Ssn
     JOIN login ON has.username = login.username
-    WHERE associate.acc_Ssn = '$lookup_ssn'*/";
+    WHERE associate.acc_Ssn = '$lookup_ssn'";
 
     $result = $conn->query($sql);
 }
@@ -49,7 +49,7 @@ $conn->close();
     <title>Wage Wizards</title>
 </head>
 <body>
-<p>SSN: <?php echo $lookup_ssn; ?></p>
+<button onclick="window.history.back()">Back</button>
     <?php
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -83,12 +83,12 @@ $conn->close();
     
                 
                 echo '<label>Privilege: </label><br>';
-                echo '<input type="radio" name="privlage" value="associate" id="associate" ' . ($row['role'] == 'associate' ? 'checked' : '') . '> Associate';
-                echo '<input type="radio" name="privlage" value="accountant" id="accountant" ' . ($row['role'] == 'accountant' ? 'checked' : '') . '> Accountant';
-                echo '<input type="radio" name="privlage" value="hr" id="hr" ' . ($row['role'] == 'hr' ? 'checked' : '') . '> Human Resources';
+                echo '<input type="radio" name="role" value="associate" id="associate" ' . ($row['role'] == 'associate' ? 'checked' : '') . '> Associate';
+                echo '<input type="radio" name="role" value="accountant" id="accountant" ' . ($row['role'] == 'accountant' ? 'checked' : '') . '> Accountant';
+                echo '<input type="radio" name="role" value="hr" id="hr" ' . ($row['role'] == 'hr' ? 'checked' : '') . '> Human Resources';
                 echo '<br><br>';
-                
-                echo '<button type="submit" class="item">Enter</button>';
+                echo '<input type="hidden" name="ssn" value="' . $row['ssn'] . '">';
+                echo '<button type="submit" class="item">Update</button>';
                 echo '</form>';
             }
         }
