@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 }
 
 // Get the employees' information
-$sql = "SELECT hr.F_name AS fname, hr.L_name AS lname, hr.email AS email, hr.phone_no AS phone
+$sql = "SELECT hr.F_name AS fname, hr.L_name AS lname, hr.email AS email, hr.phone_no AS phone, 
         FROM employs 
         JOIN hr ON employs.E_Ssn = hr.hr_Ssn WHERE employs.C_name = '".$_SESSION['company_name']."'
         UNION
