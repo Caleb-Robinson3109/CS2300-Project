@@ -63,8 +63,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     //changes the role if needed
     if($change_role){
+        $stop = false;
         if($emp_role['role'] == "hr")
         {
+            //makes sure that there is at least one hr in the company
+            $num_hr = "SELECT hr.hr_Ssn FROM hr JOIN employs ON hr.hr_Ssn = employs.E_Ssn WHERE employs.C_name = '".$_SESSION['company_name']."' AND  hr.hr"
             $remove = "DELETE FROM hr WHERE hr_Ssn = '$ssn'";
             if ($conn->query($remove) === FALSE) {
                 echo "Error: " . $remove . "<br>" . $conn->error;
