@@ -53,7 +53,7 @@ $conn->close();
     <?php
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                echo '<form action="update_employee.php" method="POST">';
+                echo '<form action="check_hr.php" method="POST">';
                 echo '<label for="employee_info" class="item">Update Employee Information</label>';
                 echo '<div>';
                 echo '<label for="fname">First Name: </label>';
@@ -88,6 +88,7 @@ $conn->close();
                 echo '<input type="radio" name="role" value="hr" id="hr" ' . ($row['role'] == 'hr' ? 'checked' : '') . '> Human Resources';
                 echo '<br><br>';
                 echo '<input type="hidden" name="ssn" value="' . $row['ssn'] . '">';
+                echo '<input type="hidden" name="curr_role" value="' . $row['role'] . '">';
                 echo '<button type="submit" class="item">Update</button>';
                 echo '</form>';
             }

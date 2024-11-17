@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wage Wizards</title>
+</head>
+<body>
 <?php
 session_start();
 
@@ -14,100 +22,104 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $phone = $_POST['phone'];
-    $email = $_POST['email'];
-    $role = $_POST['role'];
-    $ssn = $_POST['ssn'];
+$fname = $_SESSION['edit_fname'];
+$lname = $_SESSION['edit_lname'];
+$phone = $_SESSION['edit_phone'];
+$email = $_SESSION['edit_email'];
+$role = $_SESSION['edit_role'];
+$curr_role = $_SESSION['curr_role'];
+$ssn = $_SESSION['edit_ssn'];
 
-    $employee = "UPDATE employee SET role = '$role' WHERE E_Ssn = '$ssn'";
-    if ($conn->query($employee) === FALSE) {
-        echo "Error: " . $employee . "<br>" . $conn->error;
-    }
+$employee = "UPDATE employee SET role = '$role' WHERE E_Ssn = '$ssn'";
+if ($conn->query($employee) === FALSE) {
+    echo "Error: " . $employee . "<br>" . $conn->error;
+}
 
-    $emp_role_q = "SELECT role AS role FROM employee WHERE E_Ssn = '$ssn'";
-    $emp_role_r = $conn->query($emp_role_q);
-    $emp_role = $emp_role_r->fetch_assoc();
+/*$emp_role_q = "SELECT role AS role FROM employee WHERE E_Ssn = '$ssn'";
+$emp_role_r = $conn->query($emp_role_q);
+$emp_role = $emp_role_r->fetch_assoc();
+$curr_role = $emp_role['role'];*/
 
-    //does the role
-    $change_role = false;
-    if($role == "hr"){
-        $hr = "UPDATE hr SET F_name = '$fname', L_name = '$lname', phone_no = '$phone', email = '$email' WHERE hr_Ssn = '$ssn'";
-        if ($conn->query($hr) === FALSE) {
-            echo "Error: " . $hr . "<br>" . $conn->error;
-        }
-        if("hr" != $emp_role['role']){
-            $change_role = true;
-        }
-    }
-    elseif($role == "accountant"){
-        $accountant = "UPDATE accountant SET F_name = '$fname', L_name = '$lname', phone_no = '$phone', email = '$email' WHERE acc_Ssn = '$ssn'";
-        if ($conn->query($accountant) === FALSE) {
-            echo "Error: " . $accountant . "<br>" . $conn->error;
-        }
-        if("accountant" != $emp_role['role']){
-            $change_role = true;
-        }
-    }
-    elseif($role == "associate"){
-        $associate = "UPDATE aassociate SET F_name = '$fname', L_name = '$lname', phone_no = '$phone', email = '$email' WHERE acc_Ssn = '$ssn'";
-        if ($conn->query($associate) === FALSE) {
-            echo "Error: " . $associate . "<br>" . $conn->error;
-        }
-        if("associate" != $emp_role['role']){
-            $change_role = true;
-        }
-    }
+//echo "Current role: " . $curr_role . "<br>";
+//echo "New role: " . $role . "<br>";
 
-    //changes the role if needed
-    if($change_role){
-        $stop = false;
-        if($emp_role['role'] == "hr")
-        {
-            //makes sure that there is at least one hr in the company
-            $num_hr = "SELECT hr.hr_Ssn FROM hr JOIN employs ON hr.hr_Ssn = employs.E_Ssn WHERE employs.C_name = '".$_SESSION['company_name']."' AND  hr.hr"
-            $remove = "DELETE FROM hr WHERE hr_Ssn = '$ssn'";
-            if ($conn->query($remove) === FALSE) {
-                echo "Error: " . $remove . "<br>" . $conn->error;
-            }
-        }
-        elseif($emp_role['role'] == "accountant"){
-            $remove = "DELETE FROM accountant WHERE acc_Ssn = '$ssn'";
-            if ($conn->query($remove) === FALSE) {
-                echo "Error: " . $remove . "<br>" . $conn->error;
-            }
-        }
-        elseif($emp_role['role'] == "associate"){
-            $remove = "DELETE FROM associate WHERE acc_Ssn = '$ssn'";
-            if ($conn->query($remove) === FALSE) {
-                echo "Error: " . $remove . "<br>" . $conn->error;
-            }
-        }
-        if($role == "hr"){
-            $insert = "INSERT INTO hr (hr_Ssn, email, F_name, L_name, phone_no) VALUES ('$ssn', '$email', '$fname', '$lname', '$phone')";
-            if ($conn->query($insert) === FALSE) {
-                echo "Error: " . $insert . "<br>" . $conn->error;
-            }
-            //add hr to accuss table
-        }
-        elseif($role == "accountant"){
-            $insert = "INSERT INTO accountant (acc_Ssn, email, F_name, L_name, phone_no) VALUES ('$ssn', '$email', '$fname', '$lname', '$phone')";
-            if ($conn->query($insert) === FALSE) {
-                echo "Error: " . $insert . "<br>" . $conn->error;
-            }
-        }
-        elseif($role == "associatet"){
-            $insert = "INSERT INTO associate (acc_Ssn, email, F_name, L_name, phone_no) VALUES ('$ssn', '$email', '$fname', '$lname', '$phone')";
-            if ($conn->query($insert) === FALSE) {
-                echo "Error: " . $insert . "<br>" . $conn->error;
-            }
-        }
+//does the role
+if($curr_role == "hr"){
+    $hr = "UPDATE hr SET F_name = '$fname', L_name = '$lname', phone_no = '$phone', email = '$email' WHERE hr_Ssn = '$ssn'";
+    if ($conn->query($hr) === FALSE) {
+        echo "Error: " . $hr . "<br>" . $conn->error;
+    }
+}
+elseif($curr_role == "accountant"){
+    $accountant = "UPDATE accountant SET F_name = '$fname', L_name = '$lname', phone_no = '$phone', email = '$email' WHERE acc_Ssn = '$ssn'";
+    if ($conn->query($accountant) === FALSE) {
+        echo "Error: " . $accountant . "<br>" . $conn->error;
+    }
+}
+elseif($curr_role == "associate"){
+    $associate = "UPDATE associate SET F_name = '$fname', L_name = '$lname', phone_no = '$phone', email = '$email' WHERE acc_Ssn = '$ssn'";
+    if ($conn->query($associate) === FALSE) {
+        echo "Error: " . $associate . "<br>" . $conn->error;
     }
 }
 
-header("Location: ../hr_home/hr_home.html");
-exit();
+//changes the role if needed
+if($curr_role != $role){
+    //echo "hello there";
+    $conn->query("SET foreign_key_checks = 0;");
+    if($curr_role == "hr")
+    {
+        $remove = "DELETE FROM hr WHERE hr_Ssn = '$ssn'";
+        if ($conn->query($remove) === FALSE) {
+            echo "Error: " . $remove . "<br>" . $conn->error;
+        }
+        //gets rid of all the accuss table where this was an hr
+        $conn->query("DELETE FROM access WHERE hr_Ssn = '$ssn'");
+        //$remove_access_q = "SELECT hr_Ssn, username FROM access WHERE hr_ssn = '$ssn'";
+        //$remove_access_result = $conn->query($remove_access_q);
+        //while($remove_accues_row = $remove_access_result->fetch_assoc();){
+        //    $remove_access_row_q = "DELETE FROM access WHERE hr"
+        //}
+    }
+    elseif($curr_role == "accountant"){
+        $remove = "DELETE FROM accountant WHERE acc_Ssn = '$ssn'";
+        if ($conn->query($remove) === FALSE) {
+            echo "Error: " . $remove . "<br>" . $conn->error;
+        }
+    }
+    elseif($curr_role == "associate"){
+        $remove = "DELETE FROM associate WHERE acc_Ssn = '$ssn'";
+        if ($conn->query($remove) === FALSE) {
+            echo "Error: " . $remove . "<br>" . $conn->error;
+        }
+    }
+    if($role == "hr"){
+        $insert = "INSERT INTO hr (hr_Ssn, email, F_name, L_name, phone_no) VALUES ('$ssn', '$email', '$fname', '$lname', '$phone')";
+        if ($conn->query($insert) === FALSE) {
+            echo "Error: " . $insert . "<br>" . $conn->error;
+        }
+        //add hr to accuss table
+    }
+    elseif($role == "accountant"){
+        $insert = "INSERT INTO accountant (acc_Ssn, email, F_name, L_name, phone_no) VALUES ('$ssn', '$email', '$fname', '$lname', '$phone')";
+        if ($conn->query($insert) === FALSE) {
+            echo "Error: " . $insert . "<br>" . $conn->error;
+        }
+    }
+    elseif($role == "associate"){
+        $insert = "INSERT INTO associate (acc_Ssn, email, F_name, L_name, phone_no) VALUES ('$ssn', '$email', '$fname', '$lname', '$phone')";
+        if ($conn->query($insert) === FALSE) {
+            echo "Error: " . $insert . "<br>" . $conn->error;
+        }
+    }
+    $conn->query("SET foreign_key_checks = 1;");
+}
 
 $conn->close();
+
+header("Location: ../hr_home/hr_home.html");
+exit();
+?>
+</body>
+</html>
+
