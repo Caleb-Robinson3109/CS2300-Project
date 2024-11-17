@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     JOIN login ON has.username = login.username
     WHERE hr.hr_Ssn = '$lookup_ssn'
     UNION
-    SELECT accountant.acc_Ssn AS ssn, 'hr' AS role, accountant.F_name AS fname, accountant.L_name AS lname, accountant.email AS email, accountant.phone_no AS phone, login.username AS username, login.password AS password
+    SELECT accountant.acc_Ssn AS ssn, 'accountant' AS role, accountant.F_name AS fname, accountant.L_name AS lname, accountant.email AS email, accountant.phone_no AS phone, login.username AS username, login.password AS password
     FROM accountant
     JOIN has ON accountant.acc_Ssn = has.E_Ssn
     JOIN login ON has.username = login.username
@@ -53,7 +53,7 @@ $conn->close();
     <?php
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                echo '<form action="check_hr.php" method="POST">';
+                echo '<form action="update_employee.php" method="POST">';
                 echo '<label for="employee_info" class="item">Update Employee Information</label>';
                 echo '<div>';
                 echo '<label for="fname">First Name: </label>';
