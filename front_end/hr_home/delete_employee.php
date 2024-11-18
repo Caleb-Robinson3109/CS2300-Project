@@ -111,8 +111,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 }
 $conn->close();
-//header("Location: hr_home.html");
-//exit();
+header("Location: hr_home.html");
+exit();
 ?>
 </body>
 </html>
