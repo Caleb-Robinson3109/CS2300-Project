@@ -46,48 +46,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $row_hrs = $result->fetch_assoc();
 
     $num_hrs = $row_hrs['hrs'];
-
     //makes sure there is at least one hr in the company
     if($num_hrs > 1 || $role != "hr"){
-        $get_emp_q = "SELECT employee.E_Ssn AS ssn,
-            has.username AS username,
-            pay_details.pay_id AS pid,
-            pay_details.det_id AS did,
-            'hr' AS  role FROM employee 
-            JOIN has ON employee.E_Ssn = has.E_Ssn
-            JOIN gets ON employee.E_Ssn = gets.E_Ssn
-            JOIN pay_details ON gets.pay_id = pay_details.pay_id
-            JOIN hr ON employee.E_Ssn = hr.hr_Ssn
-            WHERE employee.E_Ssn = '$ssn'
-            UNION SELECT employee.E_Ssn AS ssn,
-            has.username AS username,
-            pay_details.pay_id AS pid,
-            pay_details.det_id AS did,
-            'accountant' AS  role FROM employee 
-            JOIN has ON employee.E_Ssn = has.E_Ssn
-            JOIN gets ON employee.E_Ssn = gets.E_Ssn
-            JOIN pay_details ON gets.pay_id = pay_details.pay_id
-            JOIN accountant ON employee.E_Ssn = accountant.acc_Ssn
-            WHERE employee.E_Ssn = '$ssn'
-            UNION SELECT employee.E_Ssn AS ssn,
-            has.username AS username,
-            pay_details.pay_id AS pid,
-            pay_details.det_id AS did,
-            'associate' AS  role FROM employee 
-            JOIN has ON employee.E_Ssn = has.E_Ssn
-            JOIN gets ON employee.E_Ssn = gets.E_Ssn
-            JOIN pay_details ON gets.pay_id = pay_details.pay_id
-            JOIN hr ON employee.E_Ssn = associate.acc_Ssn
-            WHERE employee.E_Ssn = '$ssn'"; //pay_detals - det_id pay_id, gets ssn, pay_id, had, ssn, susername
+        $get_emp_q = "SELECT hr.hr_Ssn AS ssn,
+            'hr' AS role,
+            has.username AS username
+            FROM hr JOIN has ON hr.hr_Ssn = has.E_Ssn
+            WHERE hr.hr_Ssn = '$ssn'
+            UNION SELECT accountant.acc_Ssn AS ssn,
+            'accountant' AS role,
+            has.username AS username
+            FROM accountant JOIN has ON accountant.acc_Ssn = has.E_Ssn
+            WHERE accountant.acc_Ssn = '$ssn'
+            UNION SELECT associate.acc_Ssn AS ssn,
+            'associate' AS role,
+            has.username AS username
+            FROM associate JOIN has ON associate.acc_Ssn = has.E_Ssn
+            WHERE associate.acc_Ssn = '$ssn'";
 
         $get_emp_r = $conn->query($get_emp_q);
+
+        $gets = $conn->query("SELECT pay_id AS pid FROM gets WHERE E_Ssn = '$ssn'");
+        $pay_row = $gets->fetch_assoc();
 
         $get_emp_row = $get_emp_r->fetch_assoc();
         $emp_ssn = $get_emp_row['ssn'];
         $emp_role = $get_emp_row['role'];
         $emp_username = $get_emp_row['username'];
-        $emp_pid = $get_emp_row['pid'];
-        $emp_did = $get_emp_row['did'];
+        $emp_pid = $pay_row['pid'];
 
         //goes through and deletes the employee from all the tables
         if($role == "hr"){
@@ -100,7 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $conn->query("DELETE FROM has WHERE E_Ssn = '$emp_ssn'");
         $conn->query("DELETE FROM login WHERE username = '$emp_username'");
         $conn->query("DELETE FROM manages WHERE pay_id = '$emp_pid'");
-        $conn->query("DELETE FROM pay_details WHERE det_id = '$emp_did'");
+        $conn->query("DELETE FROM pay_details WHERE pay_id = '$emp_pid'");
         $conn->query("DELETE FROM gets WHERE E_Ssn = '$emp_ssn'");
         $conn->query("DELETE FROM pay WHERE id = '$emp_pid'");
         $conn->query("DELETE FROM employs WHERE E_Ssn = '$emp_ssn'");
@@ -114,9 +100,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $conn->query("DELETE FROM associate WHERE acc_Ssn = '$emp_ssn'");
         }
         $conn->query("DELETE FROM employee WHERE E_Ssn = '$emp_ssn'");
+        header("Location: hr_home.html");
+        exit();
+    }
+    else{
+        echo "<script type='text/javascript'>
+                alert('Must have at least one HR in the company.');
+                window.history.back();
+            </script>";
     }
 }
 $conn->close();
+//header("Location: hr_home.html");
+//exit();
 ?>
 </body>
 </html>
