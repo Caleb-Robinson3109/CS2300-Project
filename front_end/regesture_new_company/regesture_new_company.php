@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $login_q = "INSERT INTO login (username, password) VALUES ('$admin_username', '$admin_password')";
     $has_q = "INSERT INTO has (E_Ssn, username) VALUES ('$admin_ssn', '$admin_username')";
     $access_q = "INSERT INTO access (hr_Ssn, username, password) VALUES ('$admin_ssn', '$admin_username', '$admin_password')";
-
+    
     if (mysqli_query($conn, $company_q) === false) {
         echo "Error: " . $company_q . "<br>" . mysqli_error($conn);
     } 
@@ -82,7 +82,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         mysqli_query($conn, "DELETE FROM employs WHERE C_name = '$company_name' AND E_Ssn = '$admin_ssn'");
         mysqli_query($conn, "DELETE FROM employee WHERE E_Ssn = '$admin_ssn'");
         mysqli_query($conn, "DELETE FROM company WHERE Name = '$company_name'");
-    } 
+    }
+    
     else{
         //goes back to the enter company page (index.html)
         header("Location: ../index.html");
