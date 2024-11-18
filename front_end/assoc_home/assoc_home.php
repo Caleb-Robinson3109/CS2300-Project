@@ -8,12 +8,6 @@
 </head>
 <body>
     <h1 class="center">Automatic Salaray by Wage Wizards</h1>
-    <p>Company Name</p>
-    <p>company Address</p>
-    <p>First Name Last Name</p>
-    <p>user information</p>
-    <p>Expected Salary</p>
-    <p>$(salary + bonus + benifits) * (100 - tax rate)</p>
     <?php
         session_start();
 
@@ -65,13 +59,19 @@
             echo "MySQL error: " . $conn->error;
         }
 
-        $pay_q = "SELECT pay_details.salary AS salary,
-            pay_deltails.bonus AS bonus,
-            pay_details.benefits as benefits
-            pay_details.bonus AS bonus
-            pay_details.tax_rate AS tax FROM gets
-            JOIN pay_delails ON gets.pay_id = pay_deltails.id
-            WHERE gets.E_Ssn = '".$_SESSION['ssn']."'";
+        $pay_q = "
+            SELECT 
+                pay_details.salary AS salary,
+                pay_details.bonus AS bonus,
+                pay_details.benefits AS benefits,
+                pay_details.tax_rate AS tax
+            FROM 
+                gets
+            JOIN 
+                pay_details ON gets.pay_id = pay_details.pay_id
+            WHERE 
+                gets.E_Ssn = '" . $_SESSION['ssn'] . "'
+            ";
 
         $pay_r = $conn->query($pay_q);
         if ($pay_r === FALSE) {
@@ -94,6 +94,7 @@
         echo $_SESSION['company_name'] . "<br><br>$address<br><br>$fname $lname<br>$email<br>$phone<br><br>";
         echo "Salary:<br>";
         echo "$($salary + $bonus + $benefits) * (100 - $tax)";
+        echo "<br> If no numbers show contact your accountant.";
 
         $conn->close();
     ?>
