@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1 class="center">Automatic Salaray by Wage Wizards</h1>
+    <button onclick="window.location.href='../select_role/select_role.html'">Back</button><br>
     <?php
         session_start();
 
