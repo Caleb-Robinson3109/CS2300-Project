@@ -38,9 +38,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
 
-    $bank_q = "SELECT pay.acc_num AS acc, pay.rout_num AS rout FROM gets JOIN pay ON gets.pay_id = pay.id";
+    $bank_q = "SELECT pay.acc_num AS acc, pay.rout_num AS rout FROM pay WHERE id = '" . $_SESSION['ssn'] . "'";
     $bank_r = $conn->query($bank_q);
-    $bank = $bank_r->fetch_assoc();
+    $bank = null;
+    if($bank_r->num_rows > 0){
+        $bank = $bank_r->fetch_assoc();
+    }
+    else{
+        $dummy_r = $conn->query("SELECT '' AS acc, '' AS rout FROM employee WHERE E_Ssn = '" . $_SESSION['ssn'] . "'");
+        $bank = $dummy_r->fetch_assoc();
+    }
 
 }
 
