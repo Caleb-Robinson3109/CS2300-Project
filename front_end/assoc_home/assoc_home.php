@@ -94,7 +94,7 @@
 
         echo $_SESSION['company_name'] . "<br><br>$address<br><br>$fname $lname<br>$email<br>$phone<br><br>";
         echo "Salary:<br>";
-        echo "$($salary + $bonus + $benefits) * (100 - $tax)";
+        echo "$($salary + $bonus + $benefits) * (100 - $tax)%";
         echo "<br> If no numbers show contact your accountant.";
 
         $conn->close();
