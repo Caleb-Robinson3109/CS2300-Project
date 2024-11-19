@@ -6,7 +6,7 @@
 </head>
 <body>
 <button onclick="window.history.back()">Back</button>
-<p>Financial Report</p>
+<h1>Financial Report</h1>
 <?php
 session_start();
 
