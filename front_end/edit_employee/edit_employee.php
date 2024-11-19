@@ -82,7 +82,7 @@ $conn->close();
                 echo '</div>';
     
                 
-                echo '<label>Privilege: </label><br>';
+                echo '<label>Privelege: </label><br>';
                 echo '<input type="radio" name="role" value="associate" id="associate" ' . ($row['role'] == 'associate' ? 'checked' : '') . '> Associate';
                 echo '<input type="radio" name="role" value="accountant" id="accountant" ' . ($row['role'] == 'accountant' ? 'checked' : '') . '> Accountant';
                 echo '<input type="radio" name="role" value="hr" id="hr" ' . ($row['role'] == 'hr' ? 'checked' : '') . '> Human Resources';

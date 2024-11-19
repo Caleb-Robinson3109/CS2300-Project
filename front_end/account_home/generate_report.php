@@ -22,7 +22,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
+$C_name = $_SESSION['company_name'];
 $sql = "SELECT employs.E_Ssn AS ssn,
     hr.F_name AS fname,
     hr.L_name AS lname,
@@ -55,7 +55,7 @@ $sql = "SELECT employs.E_Ssn AS ssn,
     JOIN gets ON employs.E_Ssn = gets.E_Ssn
     JOIN pay_details ON gets.pay_id = pay_details.pay_id
     JOIN associate ON employs.E_Ssn = associate.acc_Ssn
-    WHERE employs.C_name = '".$_SESSION['company_name']."'
+    WHERE employs.C_name = '$C_name'
     ";
 
 $result = $conn->query($sql);
@@ -68,17 +68,21 @@ if ($result === FALSE) {
 $total_salary = 0;
 $total_bonus = 0;
 $total_benefits = 0;
-
-echo "<table border='1'><tr><th>SSN</th><th>Employee</th><th>Salary</th><th>Bonus</th><th>Benefits</th></tr>";
-while($row = $result->fetch_assoc())
-{
-    echo "<tr><td>" . $row['ssn'] . "</td><td>" . $row['fname'] . " " . $row['lname'] . "</td><td>" . $row['salary'] . "</td><td>" . $row['bonus'] . "</td><td>" . $row['benefits'] . "</td></tr>";
-    echo "<br>";
-    $total_salary = $total_salary + $row['salary'];
-    $total_bonus = $total_bonus + $row['bonus'];
-    $total_benefits = $total_benefits + $row['benefits'];
+if($result->num_rows > 0){
+    echo "<table border='1'><tr><th>SSN</th><th>Employee</th><th>Salary</th><th>Bonus</th><th>Benefits</th></tr>";
+    while($row = $result->fetch_assoc())
+    {
+        echo "<tr><td>" . $row['ssn'] . "</td><td>" . $row['fname'] . " " . $row['lname'] . "</td><td>" . $row['salary'] . "</td><td>" . $row['bonus'] . "</td><td>" . $row['benefits'] . "</td></tr>";
+        echo "<br>";
+        $total_salary = $total_salary + $row['salary'];
+        $total_bonus = $total_bonus + $row['bonus'];
+        $total_benefits = $total_benefits + $row['benefits'];
+    }
+    echo "<tr><td></td><td></td><td>$total_salary</td><td>$total_bonus</td><td>$total_benefits</td></tr>";
 }
-echo "<tr><td></td><td></td><td>$total_salary</td><td>$total_bonus</td><td>$total_benefits</td></tr>";
+else{
+    echo "Have you company accountant enter the employees pay infomation.";
+}
 
 $conn->close();
 ?>
