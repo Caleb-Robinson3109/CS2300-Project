@@ -69,10 +69,11 @@ $total_salary = 0;
 $total_bonus = 0;
 $total_benefits = 0;
 if($result->num_rows > 0){
-    echo "<table border='1'><tr><th>SSN</th><th>Employee</th><th>Salary</th><th>Bonus</th><th>Benefits</th></tr>";
+    echo "<table border='1'><tr><th>SSN</th><th>Employee</th><th>Salary</th><th>Bonus</th><th>Benefits</th><th>Total</th></tr>";
     while($row = $result->fetch_assoc())
     {
-        echo "<tr><td>" . $row['ssn'] . "</td><td>" . $row['fname'] . " " . $row['lname'] . "</td><td>" . $row['salary'] . "</td><td>" . $row['bonus'] . "</td><td>" . $row['benefits'] . "</td></tr>";
+        $total = $row['salary'] + $row['bonus'] + $row['benefits'];
+        echo "<tr><td>" . $row['ssn'] . "</td><td>" . $row['fname'] . " " . $row['lname'] . "</td><td>" . $row['salary'] . "</td><td>" . $row['bonus'] . "</td><td>" . $row['benefits'] . "</td><td>$total</td></tr>";
         echo "<br>";
         $total_salary = $total_salary + $row['salary'];
         $total_bonus = $total_bonus + $row['bonus'];
