@@ -32,10 +32,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $conn->query("UPDATE hr SET phone_no = '$phone' WHERE hr_Ssn = '" . $_SESSION['ssn'] . "'");
     }
     elseif($role == "accountant"){
-
+        $conn->query("UPDATE accountant SET F_name = '$fname' WHERE acc_Ssn = '" . $_SESSION['ssn'] . "'");
+        $conn->query("UPDATE accountant SET L_name = '$lname' WHERE acc_Ssn = '" . $_SESSION['ssn'] . "'");
+        $conn->query("UPDATE accountant SET email = '$email' WHERE acc_Ssn = '" . $_SESSION['ssn'] . "'");
+        $conn->query("UPDATE accountant SET phone_no = '$phone' WHERE acc_Ssn = '" . $_SESSION['ssn'] . "'");
     }
     elseif($role == "associate"){
-
+        $conn->query("UPDATE associate SET F_name = '$fname' WHERE acc_Ssn = '" . $_SESSION['ssn'] . "'");
+        $conn->query("UPDATE associate SET L_name = '$lname' WHERE acc_Ssn = '" . $_SESSION['ssn'] . "'");
+        $conn->query("UPDATE associate SET email = '$email' WHERE acc_Ssn = '" . $_SESSION['ssn'] . "'");
+        $conn->query("UPDATE associate SET phone_no = '$phone' WHERE acc_Ssn = '" . $_SESSION['ssn'] . "'");
     }
     //gets old username
     /*$username_q = "SELECT username AS username FROM has WHERE E_Ssn = '" . $_SESSION['ssn'] . "'";
