@@ -93,7 +93,15 @@
         $email = $row['email'];
 
         echo $_SESSION['company_name'] . "<br><br>$address<br><br>$fname $lname<br>$email<br>$phone<br><br>";
-        echo "Salary:<br>";
+        echo "Salary: $salary<br>";
+        echo "Bonus: $bonus<br>";
+        echo "Benefits: $benefits<br>";
+        echo "Expected Tax Rate: $tax<br>";
+        $net = $salary + $bonus + $benefits;
+        echo "Net Income: $net<br>";
+        $tax_rate = (100 - $tax) / 100;
+        $take_home = $net * $tax_rate;
+        echo "Expeceted Take Home Pay: $take_home<br>";
         echo "$($salary + $bonus + $benefits) * (100 - $tax)%";
         echo "<br> If no numbers show contact your accountant.";
 
