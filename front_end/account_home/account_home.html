@@ -8,11 +8,17 @@
 </head>
 <body>
     <h1 class="center">Automatic Salaray by Wage Wizards</h1>
-    <p>Company Name</p>
-    <p>company Address</p>
-    <p>First Name Last Name</p>
-    <p>user information</p>
-    <p>Expected Salary</p>
-    <p>$(salary + bonus + benifits) * (100 - tax rate)</p>
+    <button onclick="window.location.href='../select_role/select_role.html'">Back</button>
+    <form action="../enter_new_employee/enter_new_employee.html">
+        <input type="submit" value="Download Report">
+    </form>
+    <form action="../edit_pay_info/edit_pay_info.php" method="POST">
+        <input type="submit" value="Edit Employee Information">
+        <label for="ssn">Employee ID To Edit: </label>
+        <input type="text" id="ssn" name="ssn" value="">
+    </form>
+    <form action="../lookup/lookup_id.php">
+        <input type="submit" value="Look Up Employee IDs">
+    </form>
 </body>
 </html> 
