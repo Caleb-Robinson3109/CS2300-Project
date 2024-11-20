@@ -1,0 +1,97 @@
+/* Wrapper for both containers */
+.container-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin-top: 50px;
+  padding: 0 20px;
+}
+
+/* Personal Container */
+.personal-container,
+.pay-container {
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 30px;
+  width: 350px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect for both containers */
+.personal-container:hover,
+.pay-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading styling for both containers */
+.personal-heading,
+.pay-heading {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+}
+
+/* Form styling for both containers */
+.personal-container form,
+.pay-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.personal-container label,
+.pay-container label {
+  font-size: 0.9em;
+  margin-bottom: 8px;
+  color: #555;
+  font-family: 'Arial', sans-serif;
+}
+
+.personal-container input,
+.pay-container input {
+  padding: 12px;
+  font-size: 1em;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.personal-container input:focus,
+.pay-container input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Button styling for both containers */
+.update-btn {
+  background-color: #28a745;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  text-align: center;
+}
+
+.update-btn:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.update-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
