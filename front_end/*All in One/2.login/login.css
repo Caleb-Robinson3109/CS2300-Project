@@ -1,0 +1,71 @@
+/* General body styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white; /* White background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  height: 100vh; /* Full viewport height */
+}
+
+/* Login Container */
+.login-container {
+  background-color: #f9f9f9; /* Light gray background */
+  border: 1px solid #e0e0e0; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+  padding: 2rem;
+  width: 360px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-container h2 {
+  font-size: 24px; /* Header size */
+  font-weight: bold;
+  color: #1e88e5; /* Blue header text */
+  margin-bottom: 1rem;
+}
+
+/* Login Form */
+.login-form .form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.5rem;
+}
+
+.login-form label {
+  font-size: 14px; /* Label size */
+  color: #757575; /* Medium gray text */
+}
+
+.login-form input, .login-form select {
+  font-size: 14px;
+  padding: 0.5rem;
+  border: 1px solid #bdbdbd; /* Light gray border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #f5f5f5; /* Light gray background */
+}
+
+.login-btn {
+  margin-top: 1rem; /* Added gap between password and button */
+  background-color: #1e88e5; /* Blue button */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #1565c0; /* Darker blue on hover */
+}

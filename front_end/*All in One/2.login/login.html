@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Resources Portal</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <!-- Login Container -->
+    <div class="login-container">
+        <h2>Login</h2>
+        <form class="login-form">
+            <!-- Role Selection Dropdown -->
+            <div class="form-group">
+                <label for="role">Select Role</label>
+                <select id="role">
+                    <option value="associate">Associate</option>
+                    <option value="accountant">Accountant</option>
+                    <option value="hr">HR</option>
+                </select>
+            </div>
+            <!-- Employee ID -->
+            <div class="form-group">
+                <label for="employee-id">Employee ID</label>
+                <input type="text" id="employee-id" placeholder="Enter your Employee ID">
+            </div>
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your Password">
+            </div>
+            <!-- Login Button -->
+            <button class="btn login-btn">Login</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 360px;
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.financial-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem; /* Adds space between form elements */
+}
+
+.form-group {
+  width: 100%; /* Ensures inputs span the full width of the form */
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+input, textarea {
+  width: 100%; /* Makes input fields align to the form width */
+  padding: 0.7rem;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  resize: none;
+  height: 70px;
+}
+
+.generate-report-btn {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.generate-report-btn:hover {
+  background-color: #b71c1c;
+}

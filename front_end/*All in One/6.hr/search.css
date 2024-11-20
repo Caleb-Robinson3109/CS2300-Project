@@ -1,0 +1,101 @@
+/* General body styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white; /* White background */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align horizontally */
+  padding: 1rem;
+}
+
+/* Main Layout */
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns for layout */
+  gap: 2rem; /* Space between sections */
+  width: 100%;
+  max-width: 1200px; /* Max width for layout */
+  margin-bottom: 2rem; /* Space below the layout */
+}
+
+/* Form Containers */
+.form-container {
+  background-color: #f9f9f9; /* Light gray background */
+  border: 1px solid #e0e0e0; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 1.5rem; /* Inner padding */
+  width: 360px; /* Fixed width for containers */
+  text-align: center;
+}
+
+.form-container h2 {
+  font-size: 18px; /* Section title size */
+  color: #424242; /* Neutral gray color */
+  margin-bottom: 1rem; /* Space below the title */
+}
+
+/* Form Styles */
+.form {
+  display: flex;
+  flex-direction: column; /* Stack fields vertically */
+  gap: 1rem; /* Space between fields */
+}
+
+.form-group {
+  text-align: left;
+}
+
+label {
+  font-size: 14px; /* Label text size */
+  color: #757575; /* Neutral gray */
+  margin-bottom: 0.25rem; /* Space below label */
+}
+
+input {
+  width: 100%; /* Full width */
+  padding: 0.5rem; /* Inner padding */
+  font-size: 14px; /* Input text size */
+  border: 1px solid #bdbdbd; /* Light gray border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #f5f5f5; /* Light gray background */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+/* Buttons */
+.btn {
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-btn {
+  background-color: #4CAF50; /* Green button */
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.remove-btn {
+  background-color: #1e88e5; /* Blue button */
+  color: white;
+  margin-top: 1rem;
+  padding: 1rem 2rem; /* Larger padding for emphasis */
+}
+
+.remove-btn:hover {
+  background-color: #1565c0; /* Darker blue on hover */
+}
+
+/* Remove Container */
+.remove-container {
+  text-align: center;
+}
