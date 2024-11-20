@@ -1,21 +1,32 @@
 <!DOCTYPE html>
-<html>
-<head lang = "en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>Wage Wizards</title>
+    <title>Wage Wizards - Welcome</title>
+    <link rel="stylesheet" href="welcome.css">
 </head>
 <body>
-    <h1>Welcome to Automatic Salaray by Wage Wizards</h1>
-    <form action="enter_company.php" method="POST">
-        <label for="c_name">Company Name</label>
-        <input type="text" id="c_name" name="company_name" required>
-        <button type="submit">Submit</button>
-    </form>
-    <p>or</p>
-    <form action="regesture_new_company/regesture_new_company.html" method="POST">
-        <button type="submit">Register a New Company</button>
-    </form>
+    <div class="header">
+        <div class="logo">Wage Wizards</div>
+        <div class="auth-buttons">
+            <form action="enter_company.php" method="POST" class="btn login-btn">
+                <label for="c_name">Company Name</label>
+                <input type="text" id="c_name" name="company_name" placeholder="Enter Company Name" required>
+                <button type="submit">Submit</button>
+            </form>
+            <form action="regesture_new_company/regesture_new_company.html" method="POST" class="btn signup-btn">
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+    <div class="welcome-container">
+        <div class="logo-container">
+            <div class="main-logo">Wage Wizards</div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </div>
 </body>
-</html> 
+</html>

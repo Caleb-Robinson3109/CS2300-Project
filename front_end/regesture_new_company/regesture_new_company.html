@@ -1,58 +1,70 @@
 <!DOCTYPE html>
-<html>
-<head lang = "en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="regesture_new_company.css">
-    <title>Wage Wizards</title>
+    <title>Register New Company</title>
+    <link rel="stylesheet" href="register.css">
 </head>
 <body>
-    <h1>Automatic Salaray by Wage Wizards</h1>
     <form action="regesture_new_company.php" method="POST">
-        <label for="c_info" >Company Information</label>
-        <div>
-            <label for="c_name">Company Name: </label>
-            <input type="text" id="c_name" name="c_name" required>
-        </div>
-        <div>
-            <label for="c_name">Company Address: </label>
-            <input type="text" id="c_address" name="c_address" required>
+        <!-- Main Layout -->
+        <div class="main-container">
+            <!-- Company Information Section -->
+            <div class="form-container">
+                <h2>Company Information</h2>
+                <div class="form">
+                    <div class="form-group">
+                        <label for="c_name">Company Name</label>
+                        <input type="text" id="c_name" name="c_name" placeholder="Enter Company Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="c_name">Company Address</label>
+                        <input type="text" id="c_address" name="c_address" placeholder="Enter Company Address" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Human Resources Administrator Section -->
+            <div class="form-container">
+                <h2>Human Resources Administrator Information</h2>
+                <div class="form">
+                    <div class="form-group">
+                        <label for="hr_fname">First Name</label>
+                        <input type="text" id="hr_fname" name="hr_fname" placeholder="Enter First Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hr_lname">Last Name</label>
+                        <input type="text" id="hr_lname" name="hr_lname" placeholder="Enter Last Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hr_ssn">Social Security Number</label>
+                        <input type="text" id="hr_ssn" name="hr_ssn" placeholder="Enter Social Security Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hr_email">Email</label>
+                        <input type="text" id="hr_email" name="hr_email" placeholder="Enter Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hr_phone">Phone Number</label>
+                        <input type="text" id="hr_phone" name="hr_phone" placeholder="Enter Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hr_username">Username</label>
+                        <input type="text" id="hr_username" name="hr_username" rplaceholder="Enter Username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hr_password">Password</label>
+                        <input type="text" id="hr_password" name="hr_password" placeholder="Enter Password" required>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <p> </p>
-        <p> </p>
-        <p> </p>
-
-        <label for="hr_info">Human Reasources Admin Information</label>
-        <div>
-            <label for="hr_fname">First Name: </label>
-            <input type="text" id="hr_fname" name="hr_fname" required>
+        <!-- Register Button -->
+        <div class="register-container">
+            <button type="submit" class="btn register-btn">Register</button>
         </div>
-        <div>
-            <label for="hr_lname">Last Name: </label>
-            <input type="text" id="hr_lname" name="hr_lname" required>
-        </div>
-        <div>
-            <label for="hr_ssn">SSN: </label>
-            <input type="text" id="hr_ssn" name="hr_ssn" required>
-        </div>
-        <div>
-            <label for="hr_email">Email: </label>
-            <input type="text" id="hr_email" name="hr_email" required>
-        </div>
-        <div>
-            <label for="hr_phone">Phone Number: </label>
-            <input type="text" id="hr_phone" name="hr_phone" required>
-        </div>
-        <div>
-            <label for="hr_username">Username: </label>
-            <input type="text" id="hr_username" name="hr_username" required>
-        </div>
-        <div>
-            <label for="hr_password">Password: </label>
-            <input type="text" id="hr_password" name="hr_password" required>
-        </div>
-        <button type="submit">Regesture</button>
     </form>
 </body>
-</html> 
+</html>
