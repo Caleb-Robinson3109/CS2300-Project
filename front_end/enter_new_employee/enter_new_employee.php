@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $phone = $_POST['phone'];
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $privlage = $_POST['privlage'];
+    $privlage = $_POST['role'];
 
     //insert info into tables 
     $employee_q = "INSERT INTO employee (E_Ssn, role) VALUES ('$ssn', '$privlage')";
