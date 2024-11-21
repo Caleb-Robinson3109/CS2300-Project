@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wage Wizards</title>
     <!-- Link the CSS file -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="report.css">
 </head>
 <body>
     <!-- Back Button -->
