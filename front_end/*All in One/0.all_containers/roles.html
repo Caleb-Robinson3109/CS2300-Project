@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal, Pay, Bank, Employee, and Roles Containers</title>
+  <link rel="stylesheet" href="roles.css">
+</head>
+<body>
+  <!-- Back Button -->
+  <button type="button" class="back-btn">Back</button>
+
+  <div class="container-wrapper">
+    <!-- Personal Container -->
+    <div class="personal-container">
+      <h2 class="personal-heading">Personal</h2>
+      <form>
+        <label for="employee-id">Employee ID</label>
+        <input type="text" id="employee-id" placeholder="Employee ID">
+
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" placeholder="First Name">
+
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" placeholder="Last Name">
+
+        <label for="ssn">Social Security Number</label>
+        <input type="text" id="ssn" placeholder="Social Security Number">
+
+        <label for="company-email">Company Email</label>
+        <input type="email" id="company-email" placeholder="Company Email">
+
+        <label for="phone-number">Phone Number</label>
+        <input type="text" id="phone-number" placeholder="Phone Number">
+
+        <label for="personal-email">Personal Email</label>
+        <input type="email" id="personal-email" placeholder="Personal Email">
+
+        <button type="button" class="update-btn">Update</button>
+      </form>
+    </div>
+
+    <!-- Pay Container -->
+    <div class="pay-container">
+      <h2 class="pay-heading">Pay</h2>
+      <form>
+        <label for="salary">Salary</label>
+        <input type="text" id="salary" placeholder="Salary">
+
+        <label for="bonus">Bonus</label>
+        <input type="text" id="bonus" placeholder="Bonus">
+
+        <label for="benefits">Benefits</label>
+        <input type="text" id="benefits" placeholder="Benefits">
+
+        <label for="net-income">Net Income</label>
+        <input type="text" id="net-income" placeholder="Net Income">
+
+        <label for="tax-rate">Expected Tax Rate</label>
+        <input type="text" id="tax-rate" placeholder="Expected Tax Rate">
+
+        <label for="take-home-pay">Take Home Pay</label>
+        <input type="text" id="take-home-pay" placeholder="Take Home Pay">
+
+        <button type="button" class="update-btn">Update</button>
+      </form>
+    </div>
+
+    <!-- Bank Container -->
+    <div class="bank-container">
+      <h2 class="bank-heading">Bank</h2>
+      <form>
+        <label for="account-number">Account Number</label>
+        <input type="text" id="account-number" placeholder="Account Number">
+
+        <label for="routing-number">Routing Number</label>
+        <input type="text" id="routing-number" placeholder="Routing Number">
+
+        <button type="button" class="update-btn">Update</button>
+      </form>
+    </div>
+
+    <!-- Employee Container -->
+    <div class="employee-container">
+      <h2 class="employee-heading">Employee</h2>
+      <form>
+        <label>
+          <input type="radio" name="employee-option" value="employee-id" checked onclick="toggleInput('employee-id-input')">
+          Employee ID
+        </label>
+        <input type="text" id="employee-id-input" placeholder="Employee ID">
+
+        <label>
+          <input type="radio" name="employee-option" value="ssn" onclick="toggleInput('ssn-input')">
+          Social Security Number
+        </label>
+        <input type="text" id="ssn-input" placeholder="Social Security Number" disabled>
+
+        <button type="button" class="search-btn">Search</button>
+      </form>
+    </div>
+
+    <!-- Roles Container -->
+    <div class="roles-container">
+      <h2 class="roles-heading">Roles</h2>
+      <form>
+        <label>
+          <input type="radio" name="role" value="associate"> Associate
+        </label>
+        <label>
+          <input type="radio" name="role" value="human-resources"> Human Resources
+        </label>
+        <label>
+          <input type="radio" name="role" value="accountant"> Accountant
+        </label>
+
+        <button type="button" class="update-btn">Update</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to toggle input fields in Employee container
+    function toggleInput(activeInputId) {
+      const employeeIdInput = document.getElementById('employee-id-input');
+      const ssnInput = document.getElementById('ssn-input');
+
+      if (activeInputId === 'employee-id-input') {
+        employeeIdInput.disabled = false;
+        ssnInput.disabled = true;
+        ssnInput.value = '';
+      } else {
+        employeeIdInput.disabled = true;
+        ssnInput.disabled = false;
+        employeeIdInput.value = '';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HR Edit</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Back Button -->
+  <button type="button" class="back-btn">Back</button>
+
+  <div class="container-wrapper">
+    <!-- Personal Container with Update Button -->
+    <div class="personal-container">
+      <h2 class="personal-heading">Personal</h2>
+      <form>
+        <label for="employee-id">Employee ID</label>
+        <input type="text" id="employee-id" placeholder="Employee ID">
+
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" placeholder="First Name">
+
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" placeholder="Last Name">
+
+        <label for="ssn">Social Security Number</label>
+        <input type="text" id="ssn" placeholder="Social Security Number">
+
+        <label for="company-email">Company Email</label>
+        <input type="email" id="company-email" placeholder="Company Email">
+
+        <label for="phone-number">Phone Number</label>
+        <input type="text" id="phone-number" placeholder="Phone Number">
+
+        <label for="personal-email">Personal Email</label>
+        <input type="email" id="personal-email" placeholder="Personal Email">
+
+        <button type="button" class="update-btn">Update</button>
+      </form>
+    </div>
+
+    <!-- Roles Container -->
+    <div class="roles-container">
+      <h2 class="roles-heading">Roles</h2>
+      <form>
+        <div class="role-option">
+          <label>
+            <input type="radio" name="role" value="associate" checked>
+            Associate
+          </label>
+        </div>
+        <div class="role-option">
+          <label>
+            <input type="radio" name="role" value="human-resources">
+            Human Resources
+          </label>
+        </div>
+        <div class="role-option">
+          <label>
+            <input type="radio" name="role" value="accountant">
+            Accountant
+          </label>
+        </div>
+        <button type="button" class="update-btn">Update</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Employee Button -->
+  <div class="delete-employee-container">
+    <button type="button" class="delete-employee-btn">Delete Employee</button>
+  </div>
+</body>
+</html>

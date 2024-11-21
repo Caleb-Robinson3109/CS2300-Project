@@ -1,0 +1,422 @@
+/* Back Button */
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #6c757d;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.back-btn:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.back-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Wrapper for all containers */
+.container-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-top: 80px; /* Adjusted for the Back button */
+  padding: 0 20px;
+}
+
+/* Personal, Pay, Bank, and Employee Containers */
+.personal-container,
+.pay-container,
+.bank-container,
+.employee-container {
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 30px;
+  width: 350px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* For spacing between rows */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect for all containers */
+.personal-container:hover,
+.pay-container:hover,
+.bank-container:hover,
+.employee-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading Styling */
+.personal-heading,
+.pay-heading,
+.bank-heading,
+.employee-heading {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+}
+
+/* Form Styling */
+.personal-container form,
+.pay-container form,
+.bank-container form,
+.employee-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.personal-container label,
+.pay-container label,
+.bank-container label,
+.employee-container label {
+  font-size: 0.9em;
+  margin-bottom: 8px;
+  color: #555;
+  font-family: 'Arial', sans-serif;
+}
+
+.personal-container input,
+.pay-container input,
+.bank-container input,
+.employee-container input {
+  padding: 12px;
+  font-size: 1em;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.personal-container input:focus,
+.pay-container input:focus,
+.bank-container input:focus,
+.employee-container input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Update Button Styling */
+.update-btn {
+  background-color: #28a745;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  text-align: center;
+}
+
+.update-btn:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.update-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Button Styling */
+.search-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  text-align: center;
+}
+
+.search-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.search-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Radio button styling */
+.employee-container label {
+  font-size: 0.9em;
+  margin-bottom: 8px;
+  color: #555;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  align-items: center;
+}
+/* Roles Container Styling */
+.roles-container {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Same shadow as Bank container */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.roles-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Same hover effect as Bank container */
+}
+
+/* Heading for Roles */
+.roles-heading {
+  font-size: 1.5em; /* Match Bank container heading font size */
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Role Option Styling */
+.role-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.role-option label {
+  font-size: 1em; /* Match Bank container text font size */
+  color: #555;
+  font-family: Arial, sans-serif;
+}
+
+.role-option input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Button Styling */
+.update-btn {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  background-color: #28a745;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.update-btn:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Consistent hover shadow */
+}
+
+.update-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+/* General Container Wrapper */
+.container-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin-top: 80px;
+  gap: 20px;
+}
+
+/* General Container Styling */
+.personal-container,
+.pay-container,
+.bank-container,
+.employee-container,
+.roles-container,
+.reports-container {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.personal-container:hover,
+.pay-container:hover,
+.bank-container:hover,
+.employee-container:hover,
+.roles-container:hover,
+.reports-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Headings for All Containers */
+.personal-heading,
+.pay-heading,
+.bank-heading,
+.employee-heading,
+.roles-heading,
+.reports-heading {
+  font-size: 1.5em;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Button Styling (Common) */
+.update-btn,
+.search-btn,
+.generate-btn {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Specific Button Colors */
+.update-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.update-btn:hover {
+  background-color: #218838;
+}
+
+.search-btn,
+.generate-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.search-btn:hover,
+.generate-btn:hover {
+  background-color: #0056b3;
+}
+/* General Container Styling (shared by all containers, including Personal, Roles, and Reports) */
+.personal-container,
+.pay-container,
+.bank-container,
+.employee-container,
+.roles-container,
+.reports-container {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.personal-container:hover,
+.pay-container:hover,
+.bank-container:hover,
+.employee-container:hover,
+.roles-container:hover,
+.reports-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Headings for All Containers (including Roles and Reports) */
+.personal-heading,
+.pay-heading,
+.bank-heading,
+.employee-heading,
+.roles-heading,
+.reports-heading {
+  font-size: 1.5em; /* Match the font size of Personal */
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+  font-family: 'Arial', sans-serif; /* Ensure consistent font family */
+}
+
+/* Role Option Styling */
+.role-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.role-option label {
+  font-size: 1em; /* Match the label font size of Personal */
+  color: #555;
+  font-family: 'Arial', sans-serif; /* Consistent font with Personal */
+}
+
+/* Button Styling (common across all containers) */
+.update-btn,
+.search-btn,
+.generate-btn {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Specific Button Colors */
+.update-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.update-btn:hover {
+  background-color: #218838;
+}
+
+.search-btn,
+.generate-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.search-btn:hover,
+.generate-btn:hover {
+  background-color: #0056b3;
+}

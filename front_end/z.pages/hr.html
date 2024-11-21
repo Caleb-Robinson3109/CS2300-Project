@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HR</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container-wrapper">
+    <!-- Employee Search Container -->
+    <div class="employee-container">
+      <h2 class="employee-heading">Employee Search</h2>
+      <form>
+        <label>
+          <input type="radio" name="employee-option" value="employee-id" checked onclick="toggleInput('employee-id-input')">
+          Employee ID
+        </label>
+        <input type="text" id="employee-id-input" placeholder="Employee ID">
+
+        <label>
+          <input type="radio" name="employee-option" value="ssn" onclick="toggleInput('ssn-input')">
+          Social Security Number
+        </label>
+        <input type="text" id="ssn-input" placeholder="Social Security Number" disabled>
+
+        <button type="button" class="search-btn">Search</button>
+      </form>
+    </div>
+
+    <!-- Lookup Container -->
+    <div class="lookup-container">
+      <h2 class="lookup-heading">Lookup</h2>
+      <form>
+        <button type="button" class="lookup-btn">Lookup</button>
+      </form>
+    </div>
+
+    <!-- New Employee Container -->
+    <div class="new-employee-container">
+      <h2 class="new-employee-heading">New Employee</h2>
+      <form>
+        <button type="button" class="new-employee-btn">New</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to toggle input fields in Employee Search container
+    function toggleInput(activeInputId) {
+      const employeeIdInput = document.getElementById('employee-id-input');
+      const ssnInput = document.getElementById('ssn-input');
+
+      if (activeInputId === 'employee-id-input') {
+        employeeIdInput.disabled = false;
+        ssnInput.disabled = true;
+        ssnInput.value = '';
+      } else {
+        employeeIdInput.disabled = true;
+        ssnInput.disabled = false;
+        employeeIdInput.value = '';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Login Container -->
+  <div class="login-container">
+    <h2 class="login-heading">Login</h2>
+    <form>
+      <!-- Select Role -->
+      <label for="role">Select Role</label>
+      <select id="role" class="role-select">
+        <option value="associate">Associate</option>
+        <option value="human-resources">Human Resources</option>
+        <option value="accountant">Accountant</option>
+      </select>
+
+      <!-- Username -->
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter Username">
+
+      <!-- Password -->
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter Password">
+
+      <!-- Login Button -->
+      <button type="button" class="login-btn">Login</button>
+    </form>
+  </div>
+</body>
+</html>
