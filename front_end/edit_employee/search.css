@@ -1,0 +1,146 @@
+/* General body styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Light background */
+    display: flex; /* Flexbox layout for centering */
+    justify-content: center; /* Center content horizontally */
+    align-items: flex-start; /* Align content to the top */
+    padding: 1rem;
+    min-height: 100vh; 
+    flex-direction: column;
+    }
+    
+    /* Main Layout */
+    .main-container {
+      display: grid; /* Enable grid layout */
+      grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+      gap: 2rem; /* Add space between rows and columns */
+      max-width: 800px; /* Limit the container's width */
+      margin: 0 auto; /* Center the container horizontally */
+      margin-bottom: 2rem; /* Space below the layout */
+    }
+    
+    /* Base styling for all form containers */
+  
+      .form-container {
+        gap: 1rem; /* Add spacing between items */
+        background-color: white; 
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 360px;
+        min-height: auto;
+        box-sizing: border-box;
+      }
+      
+    
+    
+    /* Specific height adjustment for Associate container if needed */
+    .associate {
+      min-height: auto; /* Allow content to define height */
+    }
+    
+    /* Heading styling for each section */
+    h1 {
+      font-size: 18px; /* Section title size */
+      font-weight: bold;
+      color: #333; /* Dark gray color for title */
+      margin-bottom: 1rem; /* Space below the title */
+    }
+    
+    /* Form styling */
+    .form {
+      display: flex; /* Flexbox for form layout */
+      flex-direction: column; /* Stack elements vertically */
+      gap: 1rem; /* Space between form elements */
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+    }
+    
+    /* Individual form group styling */
+    .form-group {
+      text-align: left; /* Left-align labels and inputs */
+      width: 100%; /* Full width */
+      margin-bottom: 0.5rem; /* Space below form group */
+    }
+    
+    /* Label styling */
+    label {
+      display: block; /* Ensure label is on its own line */
+      font-size: 14px; /* Label font size */
+      color: #555; /* Medium gray */
+      margin-bottom: 0.25rem; /* Space below the label */
+    }
+    
+    /* Input and textarea styling */
+    input, textarea {
+      width: 100%; /* Full width of the container */
+      padding: 0.5rem; /* Inner padding for inputs */
+      font-size: 14px; /* Font size */
+      border: 1px solid #ccc; /* Light gray border */
+      border-radius: 4px; /* Rounded corners */
+      background-color: #f9f9f9; /* Light gray background */
+      box-sizing: border-box; /* Ensure padding is included in width */
+    }
+    
+    /* Additional styling for textarea */
+    textarea {
+      resize: none; /* Disable resizing */
+      height: 50px; /* Fixed height for textareas */
+    }
+    
+    /* Button styling */
+    .btn {
+      font-size: 14px; /* Button text size */
+      padding: 0.5rem 1rem; /* Button padding */
+      border: none; /* Remove border */
+      border-radius: 4px; /* Rounded corners */
+      cursor: pointer; /* Pointer cursor on hover */
+      transition: background-color 0.3s ease; /* Smooth hover transition */
+    }
+    
+    /* Edit button styling */
+    .edit-btn {
+      background-color: #4CAF50; /* Green background */
+      color: white; /* White text */
+      font-weight: bold; /* Bold text */
+    }
+    
+    /* Edit button hover effect */
+    .edit-btn:hover {
+      background-color: #45a049; /* Darker green on hover */
+    }
+  
+  /* Header styling */
+  .header {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 1.5rem; /* Space below header */
+      }
+  .header h1 {
+      font-size: 24px; /* Header font size */
+      font-weight: bold; /* Bold text */
+      color: #1e88e5; /* Nice blue color */
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for effect */
+  }  
+  
+  .remove-btn {
+    background-color: #1e88e5; /* Blue button */
+    color: white;
+    margin-top: 1rem;
+    padding: 1rem 2rem; /* Larger padding for emphasis */
+  }
+  
+  .remove-btn:hover {
+    background-color: #1565c0; /* Darker blue on hover */
+  }
+  
+  /* Remove Container */
+  .remove-container {
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+  }

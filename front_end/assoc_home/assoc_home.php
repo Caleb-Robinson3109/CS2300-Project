@@ -113,43 +113,42 @@ $conn->close();
     <link rel="stylesheet" href="associate.css">
 </head>
 <body>
-<div class="main-container">
     <!-- Page Header -->
     <div class="header">
         <h1>Associate Page</h1>
     </div>
 
-    
-        <!-- Associate Section -->
-        <div class="form-container associate">
-            <h1>Associate</h1>
-            <form class="form">
-        <div class="form-group">
-        <label for="company">Company</label>
-        <input type="text" id="company" value="<?php echo $_SESSION['company_name']; ?>" readonly>
-        </div>
-        <div class="form-group">
-        <label for="address">Company Address</label>
-        <input type="text" id="address" value="<?php echo $address; ?>" readonly>
-        </div>  
-        <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" value="<?php echo $username; ?>" readonly>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="text" id="password" value="<?php echo $password; ?>" readonly>
-        </div>
-        <div class="form-group">
-            <label for="ssn">Social Security Number</label>
-            <input type="text" id="ssn" value="<?php echo $ssn; ?>" readonly>
-        </div>
+    <!-- Associate Section -->
+    <div class="main-container">
+        <div class="form-container">
+            <form >
+            <div class="form-group">
+            <h1>Employee</h1>
+            <label for="company">Company</label>
+            <input type="text" id="company" value="<?php echo $_SESSION['company_name']; ?>" readonly>
+            </div>
+            <div class="form-group">
+            <label for="address">Company Address</label>
+            <input type="text" id="address" value="<?php echo $address; ?>" readonly>
+            </div>  
+            <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" value="<?php echo $username; ?>" readonly>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" id="password" value="<?php echo $password; ?>" readonly>
+            </div>
+            <div class="form-group">
+                <label for="ssn">Social Security Number</label>
+                <input type="text" id="ssn" value="<?php echo $ssn; ?>" readonly>
+            </div>
                 
             </form>
         </div>
 
         <!-- Pay Section -->
-        <div class="form-container pay">
+        <div class="form-container">
             <h1>Pay</h1>
             <form class="form">
                 <div class="form-group">

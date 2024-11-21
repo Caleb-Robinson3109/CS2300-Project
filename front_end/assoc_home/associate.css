@@ -1,43 +1,42 @@
 /* General body styling */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9; /* Light background */
-    display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: flex-start; /* Align content to the top */
-    padding: 1rem;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9; /* Light background */
+  display: flex; /* Flexbox layout for centering */
+  justify-content: center; /* Center content horizontally */
+  align-items: flex-start; /* Align content to the top */
+  padding: 1rem;
+  min-height: 100vh; 
+  flex-direction: column;
   }
   
-  /* Main container for all sections */
+  /* Main Layout */
   .main-container {
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Even spacing between containers */
-    gap: 1rem; /* Equal space between all containers */
-    flex-wrap: wrap; /* Wrap containers on smaller screens */
-    width: 100%;
-    max-width: 1200px; /* Maximum width for layout */
+    display: grid; /* Enable grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+    gap: 2rem; /* Add space between rows and columns */
+    max-width: 800px; /* Limit the container's width */
+    margin: 0 auto; /* Center the container horizontally */
+    margin-bottom: 2rem; /* Space below the layout */
   }
   
   /* Base styling for all form containers */
-  .form-container {
-    background-color: white; /* White background for the form */
-    padding: 1rem; /* Inner padding */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    text-align: center; /* Center-align heading text */
-    display: flex; /* Flexbox for vertical alignment */
-    flex-direction: column; /* Stack children vertically */
-    gap: 1rem; /* Space between elements inside the container */
+
+    .form-container {
+      gap: 1rem; /* Add spacing between items */
+      background-color: white; 
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 360px;
+      min-height: auto;
+      box-sizing: border-box;
+    }
     
-    /* Adjust width dynamically */
-    width: 360px; /* Fixed width for all containers */
-    
-    /* Dynamic height */
-    min-height: auto; /* Automatically adjust height based on content */
-    box-sizing: border-box; /* Include padding in height calculation */
-  }
+  
   
   /* Specific height adjustment for Associate container if needed */
   .associate {

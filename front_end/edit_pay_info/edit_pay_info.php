@@ -111,7 +111,7 @@ $conn->close();
     <div class="main-container">
         <!-- Associate Section -->
         <div class="form-container associate">
-            <h1>Associate</h1>
+            <h1>Employee</h1>
             <form class="form">
                 <div class="form-group">
                     <label for="ssn">Social Security Number</label>
