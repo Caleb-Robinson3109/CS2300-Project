@@ -119,6 +119,7 @@ $conn->close();
     <link rel="stylesheet" href="search.css">
 </head>
 <body>
+<button class="back-btn" onclick="window.history.back()">Back</button>
     <!-- Associate Section -->
     <div class="main-container">
         <div class="form-container">

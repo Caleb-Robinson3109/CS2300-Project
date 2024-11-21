@@ -108,6 +108,7 @@ $conn->close();
     <link rel="stylesheet" href="edit_pay.css">
 </head>
 <body>
+<button class="back-btn" onclick="window.history.back()">Back</button>
     <div class="main-container">
         <!-- Associate Section -->
         <div class="form-container associate">

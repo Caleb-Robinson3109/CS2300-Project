@@ -69,3 +69,23 @@ body {
   .login-btn:hover {
     background-color: #1565c0; /* Darker blue on hover */
   }
+
+  .back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #6c757d; /* Gray background */
+    color: white; /* White text */
+    padding: 10px 20px;
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded button */
+    font-size: 1em; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover */
+  }
+  
+  .back-btn:hover {
+    background-color: #5a6268; /* Darker gray on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+  }

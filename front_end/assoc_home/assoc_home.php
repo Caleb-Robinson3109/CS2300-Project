@@ -113,6 +113,7 @@ $conn->close();
     <link rel="stylesheet" href="associate.css">
 </head>
 <body>
+<button class="back-btn" onclick="window.location.href='../login/login.html'">Log Out</button>
     <!-- Page Header -->
     <div class="header">
         <h1>Associate Page</h1>
