@@ -342,27 +342,35 @@ ALTER TABLE `pay_details`
 
   -- Step 1: Insert data into `employee` table
 INSERT INTO `employee` (`E_Ssn`, `role`) VALUES
-(000000000, 'associate'),
-(000000001, 'associate'),
-(000000002, 'associate'),
-(000000003, 'accountant'),
-(000000004, 'accountant'),
-(000000005, 'hr');
+(111111110, 'associate'),
+(111111111, 'associate'),
+(111111112, 'associate'),
+(111111113, 'accountant'),
+(111111114, 'accountant'),
+(111111115, 'hr'),
+(222222220, 'hr'),
+(222222221, 'hr'),
+(222222222, 'hr'),
+(222222223, 'hr');
 
 -- Step 2: Insert data into `hr` table
 INSERT INTO `hr` (`hr_Ssn`, `email`, `F_name`, `L_name`, `phone_no`) VALUES
-(000000005, 'alice@tech.com', 'Alice', 'Smith', '7462940166');
+(111111115, 'alice@tech.com', 'Alice', 'Smith', '7462940166'),
+(222222223, 'kush@wagewizards.com', 'Kush', 'Solanki', '3145550932'),
+(222222222, 'arjun@wagewizards.com', 'Arjun', 'Kirubakaran', '3145551162'),
+(222222221, 'abraham@wagewizards.com', 'Abraham', 'Yirga', '3145556574'),
+(222222220, 'caleb@wagewizards.com', 'Caleb', 'Robinson', '3145553062');
 
 -- Step 3: Insert data into `accountant` table
 INSERT INTO `accountant` (`acc_Ssn`, `email`, `F_name`, `L_name`, `phone_no`) VALUES
-(000000004, 'mark@tech.com', 'Mark', 'Johnson', '0396250022'),
-(000000003, 'larry@tech.com', 'Larry', 'Williams', '9967665555');
+(111111114, 'mark@tech.com', 'Mark', 'Johnson', '0396250022'),
+(111111113, 'larry@tech.com', 'Larry', 'Williams', '9967665555');
 
 -- Step 4: Insert data into `associate` table
 INSERT INTO `associate` (`acc_Ssn`, `email`, `F_name`, `L_name`, `phone_no`) VALUES
-(000000002, 'john@tech.com', 'John', 'Doe', '9376661029'),
-(000000001, 'isabella@tech.com', 'Isabella', 'Key', '3141592653'),
-(000000000, 'cole@tech.com', 'Cole', 'Reeves', '6366366363');
+(111111112, 'john@tech.com', 'John', 'Doe', '9376661029'),
+(111111111, 'isabella@tech.com', 'Isabella', 'Key', '3141592653'),
+(111111110, 'cole@tech.com', 'Cole', 'Reeves', '6366366363');
 
 -- Step 5: Insert data into `login` table
 INSERT INTO `login` (`username`, `password`) VALUES
@@ -371,56 +379,81 @@ INSERT INTO `login` (`username`, `password`) VALUES
 ('larry', 'larry'),
 ('john', 'john'),
 ('isabella', 'isabella'),
-('cole', 'cole');
+('cole', 'cole'),
+('kush', 'kush'),
+('arjun', 'arjun'),
+('abraham', 'abraham'),
+('caleb', 'caleb');
 
 -- Step 7: Insert data into `company` table
 INSERT INTO `company` (`Name`, `Address`) VALUES
-('Tech Company', '123 Tech Street');
+('Tech Company', '123 Tech Street, St. Louis, MO'),
+('Wage Wizards', '400 W. 14th Street, Rolla, MO');
 
 -- Step 8: Insert data into `employs` table
 INSERT INTO `employs` (`C_name`, `E_Ssn`) VALUES
-('Tech Company', 000000000),
-('Tech Company', 000000001),
-('Tech Company', 000000002),
-('Tech Company', 000000003),
-('Tech Company', 000000004),
-('Tech Company', 000000005);
+('Tech Company', 111111110),
+('Tech Company', 111111111),
+('Tech Company', 111111112),
+('Tech Company', 111111113),
+('Tech Company', 111111114),
+('Tech Company', 111111115),
+('Wage Wizards', 222222220),
+('Wage Wizards', 222222221),
+('Wage Wizards', 222222222),
+('Wage Wizards', 222222223);
 
 -- Step 9: Insert data into `pay` table
 INSERT INTO `pay` (`id`, `acc_num`, `rout_num`) VALUES
-(000000000, 123456, 654321),
-(000000001, 579385, 038634),
-(000000002, 033927, 003946),
-(000000003, 034653, 273594),
-(000000004, 994723, 883023),
-(000000005, 837253, 847222);
+(111111110, 123456, 654321),
+(111111111, 579385, 038634),
+(111111112, 033927, 003946),
+(111111113, 034653, 273594),
+(111111114, 994723, 883023),
+(111111115, 837253, 847222),
+(222222220, 100100, 011011),
+(222222221, 200200, 220220),
+(222222223, 300300, 330330),
+(222222222, 400400, 440440);
 
 -- Step 10: Insert data into `gets` table
 INSERT INTO `gets` (`E_Ssn`, `pay_id`) VALUES
-(000000000, 000000000),
-(000000001, 000000001),
-(000000002, 000000002),
-(000000003, 000000003),
-(000000004, 000000004),
-(000000005, 000000005);
+(111111110, 111111110),
+(111111111, 111111111),
+(111111112, 111111112),
+(111111113, 111111113),
+(111111114, 111111114),
+(111111115, 111111115),
+(222222220, 222222220),
+(222222221, 222222221),
+(222222222, 222222222),
+(222222223, 222222223);
 
 -- Step 11: Insert data into `has` table
 INSERT INTO `has` (`E_Ssn`, `username`) VALUES
-(000000000, 'cole'),
-(000000001, 'isabella'),
-(000000002, 'john'),
-(000000003, 'larry'),
-(000000004, 'mark'),
-(000000005, 'alice');
+(111111110, 'cole'),
+(111111111, 'isabella'),
+(111111112, 'john'),
+(111111113, 'larry'),
+(111111114, 'mark'),
+(111111115, 'alice'),
+(222222220, 'caleb'),
+(222222221, 'abraham'),
+(222222222, 'arjun'),
+(222222223, 'kush');
 
 -- Step 12: Insert data into `pay_details` table
 INSERT INTO `pay_details` (`pay_id`, `det_id`, `salary`, `benefits`, `bonus`, `tax_rate`) VALUES
-(000000000, 000000000, 60000, 2300, 4000, 22),
-(000000001, 000000001, 65000, 1000, 4000, 22),
-(000000002, 000000002, 80500, 5300, 4000, 26),
-(000000003, 000000003, 84000, 2500, 4000, 26),
-(000000004, 000000004, 86500, 6600, 4000, 26),
-(000000005, 000000005, 90100, 3800, 4000, 28);
+(111111110, 111111110, 60000, 2300, 4000, 22),
+(111111111, 111111111, 65000, 1000, 4000, 22),
+(111111112, 111111112, 80500, 5300, 4000, 26),
+(111111113, 111111113, 84000, 2500, 4000, 26),
+(111111114, 111111114, 86500, 6600, 4000, 26),
+(111111115, 111111115, 90100, 3800, 4000, 28),
+(222222220, 222222220, 100000, 10000, 20000, 25),
+(222222221, 222222221, 100000, 10000, 20000, 25),
+(222222222, 222222222, 100000, 10000, 20000, 25),
+(222222223, 222222223, 100000, 10000, 20000, 25);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
