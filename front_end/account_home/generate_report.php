@@ -81,7 +81,8 @@ if($result->num_rows > 0){
         $total_bonus = $total_bonus + $row['bonus'];
         $total_benefits = $total_benefits + $row['benefits'];
     }
-    echo "<tr><td></td><td></td><td>$total_salary</td><td>$total_bonus</td><td>$total_benefits</td></tr>";
+    $total = $total_salary + $total_bonus + $total_benefits;
+    echo "<tr><td></td><td></td><td>$total_salary</td><td>$total_bonus</td><td>$total_benefits</td><td>$total</td></tr>";
 }
 else{
     echo "Have you company accountant enter the employees pay infomation.";
