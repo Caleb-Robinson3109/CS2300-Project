@@ -1,0 +1,126 @@
+/* General body styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Light background */
+    display: flex;
+    flex-direction: column; /* Allow Generate Reports button to appear below */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: 1rem;
+  }
+  
+  /* Main container for all sections */
+  .main-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Even spacing between containers */
+    gap: 1rem; /* Equal space between all containers */
+    flex-wrap: wrap; /* Wrap containers on smaller screens */
+    width: 100%;
+    max-width: 1200px; /* Maximum width for layout */
+  }
+  
+  /* Base styling for all form containers */
+  .form-container {
+    background-color: white; /* White background for the form */
+    padding: 1rem; /* Inner padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Center-align heading text */
+    display: flex; /* Flexbox for vertical alignment */
+    flex-direction: column; /* Stack children vertically */
+    gap: 1rem; /* Space between elements inside the container */
+    
+    /* Adjust width dynamically */
+    width: 360px; /* Fixed width for all containers */
+    min-height: auto; /* Automatically adjust height based on content */
+    box-sizing: border-box; /* Include padding in height calculation */
+  }
+  
+  /* Heading styling for each section */
+  h1 {
+    font-size: 18px; /* Section title size */
+    font-weight: bold;
+    color: #333; /* Dark gray color for title */
+    margin-bottom: 1rem; /* Space below the title */
+  }
+  
+  /* Form styling */
+  .form {
+    display: flex; /* Flexbox for form layout */
+    flex-direction: column; /* Stack elements vertically */
+    gap: 1rem; /* Space between form elements */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+  }
+  
+  /* Individual form group styling */
+  .form-group {
+    text-align: left; /* Left-align labels and inputs */
+    width: 100%; /* Full width */
+    margin-bottom: 0.5rem; /* Space below form group */
+  }
+  
+  /* Label styling */
+  label {
+    display: block; /* Ensure label is on its own line */
+    font-size: 14px; /* Label font size */
+    color: #555; /* Medium gray */
+    margin-bottom: 0.25rem; /* Space below the label */
+  }
+  
+  /* Input and textarea styling */
+  input, textarea {
+    width: 100%; /* Full width of the container */
+    padding: 0.5rem; /* Inner padding for inputs */
+    font-size: 14px; /* Font size */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light gray background */
+    box-sizing: border-box; /* Ensure padding is included in width */
+  }
+  
+  /* Additional styling for textarea */
+  textarea {
+    resize: none; /* Disable resizing */
+    height: 50px; /* Fixed height for textareas */
+  }
+  
+  /* Button styling */
+  .btn {
+    font-size: 14px; /* Button text size */
+    padding: 0.5rem 1rem; /* Button padding */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+  }
+  
+  /* Edit button styling */
+  .edit-btn {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    font-weight: bold; /* Bold text */
+  }
+  
+  /* Edit button hover effect */
+  .edit-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  
+  /* Generate Reports button styling */
+  .generate-btn {
+    background-color: #2196F3; /* Blue background for Generate Reports */
+    color: white; /* White text */
+    font-weight: bold; /* Bold text */
+    padding: 1rem 2rem; /* Larger padding for prominence */
+    border-radius: 8px; /* Rounded corners */
+    margin-top: 2rem; /* Space above the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Slightly larger text size */
+  }
+  
+  .generate-btn:hover {
+    background-color: #1976D2; /* Darker blue on hover */
+  }

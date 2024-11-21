@@ -43,22 +43,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     //pay_details
-    $pd_q = "SELECT pay_details.salary,
-        pay_details.bonus,
-        pay_details.benefits,
-        pay_details.tax_rate,
+    $pd_q = "SELECT 
         pay_details.pay_id as pid
-        FROM gets JOIN pay_details WHERE gets.pay_id = pay_details.pay_id
-        WHERE gets.E_Ssn = '$ssn'";
+        FROM pay_details
+        WHERE pay_id = '$ssn'";
 
     $pd_r = $conn->query($pd_q);
     if($pd_r->num_rows > 0){
         $pid_row = $pd_r->fetch_assoc();
         $pid = $e_ssn_row['pid'];
-        $conn->query("UPDATE pay_details SET salary = '$salary' WHERE pay_id = '$pid'");
-        $conn->query("UPDATE pay_details SET bonus = '$bonus' WHERE pay_id = '$pid'");
-        $conn->query("UPDATE pay_details SET benefits = '$benefits' WHERE pay_id = '$pid'");
-        $conn->query("UPDATE pay_details SET tax_rate = '$tax' WHERE pay_id = '$pid'");
+        $conn->query("UPDATE pay_details SET salary = '$salary' WHERE pay_id = '$ssn' AND DET_id = '$ssn'");
+        $conn->query("UPDATE pay_details SET bonus = '$bonus' WHERE pay_id = '$ssn' AND DET_id = '$ssn'");
+        $conn->query("UPDATE pay_details SET benefits = '$benefits' WHERE pay_id = '$ssn' AND DET_id = '$ssn'");
+        $conn->query("UPDATE pay_details SET tax_rate = '$tax' WHERE pay_id = '$ssn' AND DET_id = '$ssn'");
     }
     else{
         $R = $conn->query("INSERT INTO pay_details (det_id, pay_id, salary, bonus, benefits, tax_rate) VALUES ('$ssn', '$ssn', '$salary', '$bonus', '$benefits', '$tax')");
