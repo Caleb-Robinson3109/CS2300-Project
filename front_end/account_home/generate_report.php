@@ -33,6 +33,7 @@ $sql = "SELECT employs.E_Ssn AS ssn,
     JOIN gets ON employs.E_Ssn = gets.E_Ssn
     JOIN pay_details ON gets.pay_id = pay_details.pay_id
     JOIN hr ON employs.E_Ssn = hr.hr_Ssn
+    WHERE employs.C_name = '$C_name'
     UNION
     SELECT employs.E_Ssn AS ssn,
     accountant.F_name AS fname,
@@ -44,6 +45,7 @@ $sql = "SELECT employs.E_Ssn AS ssn,
     JOIN gets ON employs.E_Ssn = gets.E_Ssn
     JOIN pay_details ON gets.pay_id = pay_details.pay_id
     JOIN accountant ON employs.E_Ssn = accountant.acc_Ssn
+    WHERE employs.C_name = '$C_name'
     UNION
     SELECT employs.E_Ssn AS ssn,
     associate.F_name AS fname,
