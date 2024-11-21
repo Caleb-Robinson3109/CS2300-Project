@@ -1,31 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head lang = "en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="hr_home.css">
-    <title>Wage Wizards</title>
+    <title>Human Resources Page</title>
+    <link rel="stylesheet" href="hr_cover.css">
 </head>
 <body>
-    <button onclick="window.location.href='../select_role/select_role.html'">Back</button>
-    <form action="../enter_new_employee/enter_new_employee.html">
-        <input type="submit" value="Enter New Employee">
-    </form>
-    <form action="../edit_employee/edit_employee.php" method="POST">
-        <input type="submit" value="Edit Employee Information">
-        <label for="e_ssn">Employee ID To Edit: </label>
-        <input type="text" id="e_ssn" name="e_ssn" value="">
-    </form>
-    <form action="delete_employee.php" method="POST">
-        <input type="submit" value="Delete Employee">
-        <label for="e_ssn">Employee ID To Delete: </label>
-        <input type="text" id="e_ssn" name="e_ssn" value="">
-    </form>
-    <form action="../lookup/lookup_id.php">
-        <input type="submit" value="Look Up Employee IDs">
-    </form>
-    <form action="../select_role/select_role.html">
-        <input type="submit" value="Back To Role Select">
-    </form>
+    <!-- Page Header -->
+    <div class="header">
+        <h1>Human Resources Page</h1>
+    </div>
+
+    <!-- Content Layout -->
+    <div class="main-container">
+        <!-- Search Employee Container -->
+        <div class="search-container">
+            <form action="../edit_employee/edit_employee.php" method="post"> 
+                <h2>Search Employee</h2>
+                <div class="search-functions">
+                    <div class="form-group">
+                        <label for="ssn">Search by Employee ID</label>
+                        <input type="text" id="ssn" name="e_ssn" placeholder="Enter Employee SSN">
+                    </div>
+                </div>
+                <button type="submit" class="btn search-btn">Search</button>
+            </form>
+        </div>
+
+        <!-- Add New Employee Container -->
+        <div class="add-container">
+         <form action="../enter_new_employee/enter_new_employee.html">
+            
+                <button type="submit" class="btn add-btn">Add New Employee</button>
+            
+        </form>
+    </div>
+    </div>
+    <div>
+            <!-- Employee Lookup Button -->
+        <form action="../lookup/lookup_id.php">
+            <div class="generate-reports">
+                <button type="submit" class="btn generate-btn">Employee SSN Look Up</button>
+            </div>
+        </form>
+    </div>
+
 </body>
-</html> 
+</html>

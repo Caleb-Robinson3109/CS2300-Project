@@ -113,7 +113,13 @@ $conn->close();
     <link rel="stylesheet" href="associate.css">
 </head>
 <body>
-    <div class="main-container">
+<div class="main-container">
+    <!-- Page Header -->
+    <div class="header">
+        <h1>Associate Page</h1>
+    </div>
+
+    
         <!-- Associate Section -->
         <div class="form-container associate">
             <h1>Associate</h1>

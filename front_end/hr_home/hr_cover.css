@@ -1,0 +1,152 @@
+/* General body styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white; /* Set background to white */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center content horizontally */
+    padding: 1rem;
+  }
+  
+  /* Header styling */
+  .header {
+    text-align: center;
+    margin-bottom: 1.5rem; /* Space below header */
+  }
+  
+  .header h1 {
+    font-size: 24px; /* Header font size */
+    font-weight: bold; /* Bold text */
+    color: #1e88e5; /* Nice blue color */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for effect */
+  }
+  
+  /* Main container styling */
+  .main-container {
+    display: flex; /* Use flexbox for side-by-side layout */
+    justify-content: space-between; /* Space between containers */
+    gap: 2rem; /* Space between containers */
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Maximum width */
+  }
+  
+  /* Search Employee Container */
+  .search-container {
+    background-color: white; /* White background */
+    padding: 1.5rem; /* Inner padding */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 45%; /* Equal width for both containers */
+    text-align: center; /* Center-align text */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Spread elements */
+  }
+  
+  .search-container h2 {
+    font-size: 18px; /* Section title size */
+    color: #424242; /* Neutral dark gray */
+    margin-bottom: 1rem; /* Space below the title */
+  }
+  
+  .search-functions {
+    display: flex;
+    flex-direction: column; /* Stack search fields vertically */
+    gap: 1rem; /* Space between search fields */
+  }
+  
+  /* Form Group */
+  .form-group {
+    display: flex;
+    flex-direction: column; /* Stack label and input */
+    text-align: left; /* Left-align label and input */
+  }
+  
+  label {
+    font-size: 12px; /* Smaller label font size */
+    color: #757575; /* Subtle gray color */
+    margin-bottom: 0.25rem; /* Space below label */
+  }
+  
+  input {
+    width: 100%; /* Full width */
+    padding: 0.4rem; /* Input padding */
+    font-size: 12px; /* Font size */
+    border: 1px solid #bdbdbd; /* Light gray border */
+    border-radius: 6px; /* Rounded corners */
+    background-color: #f5f5f5; /* Light gray background */
+    box-sizing: border-box; /* Include padding in width calculation */
+    transition: border-color 0.3s ease; /* Smooth border color transition */
+  }
+  
+  input:focus {
+    border-color: #42a5f5; /* Blue border on focus */
+    outline: none; /* Remove default focus outline */
+  }
+  
+  /* Search Button */
+  .search-btn {
+    align-self: flex-end; /* Align button to the right */
+    margin-top: 1rem; /* Space above button */
+    background-color: #1e88e5; /* Match Add Employee button color */
+    color: white; /* White text */
+    font-size: 14px; /* Button text size */
+    font-weight: bold; /* Bold text */
+    padding: 0.75rem 1.5rem; /* Button padding */
+    border: none; /* Remove border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s; /* Smooth hover transition */
+  }
+  
+  .search-btn:hover {
+    background-color: #1565c0; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  /* Add New Employee Container */
+  .add-container {
+    background-color: white; /* White background */
+    padding: 1.5rem; /* Inner padding */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 45%; /* Equal width for both containers */
+    display: flex;
+    justify-content: center; /* Center the button */
+    align-items: center; /* Center the button */
+  }
+  
+  .add-btn {
+    background-color: #1e88e5; /* Blue background */
+    color: white; /* White text */
+    font-size: 14px; /* Button text size */
+    font-weight: bold; /* Bold text */
+    padding: 0.75rem 2rem; /* Button padding */
+    border: none; /* Remove border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s; /* Smooth hover transition */
+  }
+  
+  .add-btn:hover {
+    background-color: #1565c0; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+
+/* Generate Reports button styling */
+.generate-btn {
+    background-color: #2196F3; /* Blue background for Generate Reports */
+    color: white; /* White text */
+    font-weight: bold; /* Bold text */
+    padding: 1rem 2rem; /* Larger padding for prominence */
+    border-radius: 8px; /* Rounded corners */
+    margin-top: 2rem; /* Space above the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Slightly larger text size */
+    }
+    
+    .generate-btn:hover {
+    background-color: #1976D2; /* Darker blue on hover */
+    }

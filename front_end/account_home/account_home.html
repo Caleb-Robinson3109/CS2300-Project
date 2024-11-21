@@ -1,24 +1,46 @@
 <!DOCTYPE html>
-<html>
-<head lang = "en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Wage Wizards</title>
+    <title>Updated Layout</title>
+    <link rel="stylesheet" href="accountant.css">
 </head>
 <body>
-    <h1 class="center">Automatic Salaray by Wage Wizards</h1>
-    <button onclick="window.location.href='../select_role/select_role.html'">Back</button>
-    <form action="generate_report.php">
-        <input type="submit" value="Download Report">
-    </form>
-    <form action="../edit_pay_info/edit_pay_info.php" method="post">
-        <input type="submit" value="Edit Employee Information">
-        <label for="ssn">Employee ID To Edit: </label>
-        <input type="text" id="ssn" name="ssn" value="">
-    </form>
-    <form action="../lookup/lookup_id.php">
-        <input type="submit" value="Look Up Employee IDs">
-    </form>
+    <!-- Page Header -->
+    <div class="header">
+        <h1>Accountant Page</h1>
+    </div>
+
+    <!-- Content Layout -->
+    <div class="main-container">
+        <!-- Search Employee Container -->
+        <div class="search-container">
+            <form action="../edit_pay_info/edit_pay_info.php" method="post"> 
+                <h2>Search Employee</h2>
+                <div class="search-functions">
+                    <div class="form-group">
+                        <label for="ssn">Search by Employee ID</label>
+                        <input type="text" id="ssn" name="ssn" placeholder="Enter Employee SSN">
+                    </div>
+                </div>
+                <button type="submit" class="btn search-btn">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Generate Reports Button -->
+        <form action="../lookup/lookup_id.php">
+            <div class="generate-reports">
+                <button type="submit" class="btn generate-btn">Employee SSN Look Up</button>
+            </div>
+        </form>
+        <form action="generate_report.php">
+            <div class="generate-reports">
+                <button type="submit" class="btn generate-btn">Generate Report</button>
+            </div>
+        </form>
+    </div>
 </body>
-</html> 
+</html>
