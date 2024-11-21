@@ -1,0 +1,644 @@
+
+
+/* General Container Wrapper */
+.container-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; /* Align containers evenly */
+    align-items: flex-start;
+    margin-top: 80px;
+    gap: 20px; /* Space between containers */
+  }
+  
+  /* General Container Styling */
+  .personal-container,
+  .pay-container,
+  .bank-container,
+  .employee-container,
+  .roles-container,
+  .reports-container {
+    background: #fff; /* White background for the containers */
+    border: 1px solid #e0e0e0; /* Light gray border */
+    border-radius: 12px; /* Rounded corners */
+    padding: 35px; /* Padding inside the containers */
+    width: 300px; /* Fixed width for consistency */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  }
+  
+  /* Hover Effect for Containers */
+  .personal-container:hover,
+  .pay-container:hover,
+  .bank-container:hover,
+  .employee-container:hover,
+  .roles-container:hover,
+  .reports-container:hover {
+    transform: translateY(-5px); /* Lift slightly on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increase shadow depth */
+  }
+  
+  /* Headings for All Containers */
+  .personal-heading,
+  .pay-heading,
+  .bank-heading,
+  .employee-heading,
+  .roles-heading,
+  .reports-heading {
+    font-size: 1.5em; /* Uniform heading size */
+    color: #333; /* Dark gray for text */
+    font-weight: bold;
+    text-align: center; /* Center align headings */
+    margin-bottom: 15px; /* Space below the heading */
+    font-family: 'Arial', sans-serif; /* Consistent font */
+  }
+  
+  /* Input Field Styling */
+  input[type="text"],
+  input[type="email"] {
+    width: 100%; /* Full width */
+    padding: 10px; /* Add padding inside the field */
+    font-size: 1em; /* Font size for text */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 8px; /* Rounded input fields */
+    margin-bottom: 15px; /* Space below each field */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Focus effect */
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none; /* Remove outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow */
+  }
+  
+  /* Radio Button Styling */
+  .role-option label,
+  .employee-container label {
+    font-size: 1em; /* Match other text sizes */
+    color: #555; /* Darker gray for labels */
+    font-family: 'Arial', sans-serif; /* Consistent font */
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Space between options */
+  }
+  
+  input[type="radio"] {
+    margin-right: 10px; /* Space between radio button and label */
+  }
+  
+  /* Button Styling (Common Across All Containers) */
+  .update-btn,
+  .search-btn,
+  .generate-btn {
+    display: block;
+    width: 100%; /* Full width button */
+    padding: 10px 0; /* Padding inside the button */
+    font-size: 1em; /* Font size */
+    font-weight: bold; /* Bold text */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover */
+  }
+  
+  /* Update Button (Green) */
+  .update-btn {
+    background-color: #28a745; /* Green background */
+    color: white; /* White text */
+  }
+  
+  .update-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+  }
+  
+  /* Search and Generate Buttons (Blue) */
+  .search-btn,
+  .generate-btn {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+  }
+  
+  .search-btn:hover,
+  .generate-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+  }
+  
+  /* Back Button Styling */
+  .back-btn {
+    position: absolute;
+    top: 20px; /* Position at the top */
+    left: 20px; /* Align to the left */
+    background-color: #6c757d; /* Gray background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding inside the button */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded button */
+    font-size: 1em; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover */
+  }
+  
+  .back-btn:hover {
+    background-color: #5a6268; /* Darker gray on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+  }
+  /* Add Employee Button Styling */
+  .add-employee-container {
+    text-align: center; /* Center-align the button */
+    margin-top: 20px;
+  }
+  
+  .add-employee-btn {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding inside the button */
+    font-size: 1.2em; /* Slightly larger font size */
+    font-weight: bold; /* Bold text */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .add-employee-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+  }
+  
+  .add-employee-btn:active {
+    transform: translateY(0); /* Reset position on click */
+    box-shadow: none; /* Remove shadow */
+  }
+  
+  /* Delete Employee Button Styling */
+  .delete-employee-container {
+    text-align: center; /* Center-align the button */
+    margin-top: 20px;
+  }
+  
+  .delete-employee-btn {
+    background-color: #dc3545; /* Red background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding inside the button */
+    font-size: 1.2em; /* Slightly larger font size */
+    font-weight: bold; /* Bold text */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .delete-employee-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+  }
+  
+  .delete-employee-btn:active {
+    transform: translateY(0); /* Reset position on click */
+    box-shadow: none; /* Remove shadow */
+  }
+  
+  /* Login Container Styling */
+  .login-container {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 35px;
+    width: 300px;
+    margin: 100px auto; /* Center the container on the page */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .login-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Login Heading Styling */
+  .login-heading {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Input Field and Select Styling */
+  input[type="text"],
+  input[type="password"],
+  select {
+    width: 100%; /* Full width for inputs and select */
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  select:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow effect */
+  }
+  
+  /* Select Dropdown Styling */
+  .role-select {
+    appearance: none; /* Remove native dropdown styling */
+    background: #fff;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"%3E%3Cpath fill="%23666" d="M2 0L0 2h4zM2 5L0 3h4z"/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding-right: 30px; /* Add space for dropdown arrow */
+  }
+  
+  /* Login Button Styling */
+  .login-btn {
+    display: block;
+    width: 100%; /* Full width button */
+    padding: 10px 0;
+    background-color: #007bff; /* Blue background */
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .login-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+  }
+  
+  .login-btn:active {
+    transform: translateY(0); /* Reset position on click */
+    box-shadow: none; /* Remove shadow */
+  }
+  /* General Container Wrapper */
+  .container-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-top: 80px;
+    gap: 20px; /* Space between containers */
+  }
+  
+  /* Company Information Container */
+  .company-container {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 35px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .company-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .company-heading {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Input Fields for Company Information */
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="email"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Personal Container Styling */
+  .personal-container {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 35px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .personal-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .personal-heading {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Login Information Container Styling */
+  .login-container {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 35px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .login-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .login-heading {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Register Button Styling */
+  .register-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .register-btn {
+    background-color: #28a745; /* Green background */
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .register-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register-btn:active {
+    transform: translateY(0); /* Reset position on click */
+    box-shadow: none; /* Remove shadow */
+  }
+  /* General Reset */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef); /* Subtle gradient */
+  }
+  
+  /* Navbar Styling */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: white;
+    border-bottom: 1px solid #e0e0e0; /* Light border for separation */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Search Bar and Button Container */
+  .search-container {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between the input and the button */
+  }
+  
+  /* Search Bar Styling */
+  .search-bar {
+    width: 300px; /* Fixed width for better visibility */
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .search-bar:focus {
+    outline: none;
+    border-color: #007bff; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow */
+  }
+  
+  /* Search Button Styling */
+  .search-btn {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    padding: 10px 16px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .search-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+  }
+  
+  .search-btn:active {
+    transform: translateY(0); /* Reset position on click */
+    box-shadow: none; /* Remove shadow */
+  }
+  
+  /* Right Section: Buttons */
+  .navbar-right {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+  }
+  
+  .login-btn,
+  .register-btn {
+    padding: 8px 16px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .login-btn {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .login-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .register-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Welcome Content */
+  .welcome-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px); /* Full height minus navbar height */
+  }
+  
+  .welcome-circle {
+    width: 200px;
+    height: 200px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .welcome-circle h1 {
+    font-size: 1.5em;
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  /* Lookup Container Styling */
+  .lookup-container {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 35px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .lookup-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .lookup-heading {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .lookup-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .lookup-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  /* New Employee Container Styling */
+  .new-employee-container {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 35px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .new-employee-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .new-employee-heading {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .new-employee-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Blue background */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .new-employee-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
