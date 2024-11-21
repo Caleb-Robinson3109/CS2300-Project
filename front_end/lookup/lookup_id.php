@@ -37,17 +37,20 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wage Wizards</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="lookup.css">
 </head>
 <body>
 
-    <h1>List of Employees</h1>
-    <button onclick="window.history.back()">Back</button>
+    <h1 class="lookup-table-heading">List of Employees</h1>
+    <button class="back-btn" onclick="window.history.back()">Back</button>
 
+    <div class="lookup-table-container">
     <?php
     // Check if the query returns any results
     if ($result->num_rows > 0) {
         // Start the HTML table
-        echo "<table border='1'><tr><th>SSN</th><th>Role</th><th>Name</th><th>Email</th><th>Phone Number</th></tr>";
+        echo "<table class='lookup-table'><thead><tr><th>SSN</th><th>Role</th><th>Name</th><th>Email</th><th>Phone Number</th></tr></thead><tbody>";
 
         // Output data of each row
         while ($row = $result->fetch_assoc()) {
@@ -55,7 +58,7 @@ $result = $conn->query($sql);
         }
 
         // End the table
-        echo "</table>";
+        echo "</tbody></table>";
     } else {
         echo "<p>No users found.</p>";
     }
@@ -63,6 +66,7 @@ $result = $conn->query($sql);
     // Close the database connection
     $conn->close();
     ?>
+    </div>
 
 </body>
 </html>

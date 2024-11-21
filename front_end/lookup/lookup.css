@@ -1,0 +1,101 @@
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef); /* Subtle gradient */
+  }
+  
+  /* Back Button Styling */
+  .back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #6c757d; /* Gray background */
+    color: white; /* White text */
+    padding: 10px 20px;
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded button */
+    font-size: 1em; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover */
+  }
+  
+  .back-btn:hover {
+    background-color: #5a6268; /* Darker gray on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+  }
+  
+  /* Lookup Table Container */
+  .lookup-table-container {
+    margin: 80px auto;
+    width: 90%;
+    max-width: 900px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Table Heading */
+  .lookup-table-heading {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Table Styling */
+  .lookup-table {
+    width: 100%;
+    border-collapse: collapse; /* Remove gaps between table cells */
+    font-size: 1em;
+    border-radius: 8px;
+    overflow: hidden; /* Ensure rounded corners apply to the table */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle depth */
+    text-align: left;
+  }
+  
+  .lookup-table th,
+  .lookup-table td {
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0; /* Add borders for table cells */
+  }
+  
+  .lookup-table th {
+    background-color: #007bff; /* Blue header background */
+    color: white; /* White text for headers */
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .lookup-table tbody tr:nth-child(odd) {
+    background-color: #f8f9fa; /* Light gray for alternate rows */
+  }
+  
+  .lookup-table tbody tr:nth-child(even) {
+    background-color: #ffffff; /* White for other rows */
+  }
+  
+  /* Hover Effect for Rows */
+  .lookup-table tbody tr:hover {
+    background-color: #e9ecef; /* Highlight row on hover */
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  /* Table Responsive Behavior */
+  @media (max-width: 768px) {
+    .lookup-table-container {
+      padding: 15px;
+      font-size: 0.9em;
+    }
+  
+    .lookup-table th,
+    .lookup-table td {
+      padding: 10px;
+    }
+  }
