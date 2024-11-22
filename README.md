@@ -7,7 +7,7 @@ Installation Guide
 2. Install XAMPP 8.0.30 for Linux from the internet
 3. Open a terminal
 4. In the terminal enter the command: cd ~/Downloads
-5. In the terminal enter the command: chmod +x xampp-linux-*-installer.run
+5. In the terminal enter the command: sudo chmod +x xampp-linux-*-installer.run
 6. In the terminal enter the command: sudo ./xampp-linux-*-installer.run
 7. Go through the setup wizard and allow XAMPP to finish downloading
 8. If the XAMPP GUI automatically shows up skip to step 11
